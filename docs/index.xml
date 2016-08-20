@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SlimFit Docs</title>
+    <link>https://slimfit.khanhicetea.com/</link>
+    <description>Recent content on SlimFit Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Aug 2016 21:07:13 +0100</lastBuildDate>
+    <atom:link href="https://slimfit.khanhicetea.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SlimFit - Good Enough RESTful API Framework</title>
+      <link>https://slimfit.khanhicetea.com/</link>
+      <pubDate>Sat, 20 Aug 2016 21:07:13 +0100</pubDate>
+      
+      <guid>https://slimfit.khanhicetea.com/</guid>
+      <description>
+
+&lt;h2 id=&#34;beautiful-api-design&#34;&gt;Beautiful API design&lt;/h2&gt;
+
+&lt;p&gt;SlimFit is a framework for only purpose - RESTful API webservice, it&amp;rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.&lt;/p&gt;
+
+&lt;p&gt;SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.&lt;/p&gt;
+
+&lt;div class=&#34;admonition note&#34;&gt;
+&lt;p class=&#34;admonition-title&#34;&gt;Notice&lt;/p&gt;
+&lt;p&gt;If you are looking for a website framework, please try another one.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
+
+&lt;p&gt;Install with &lt;code&gt;composer&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;composer create-project khanhicetea/slimfit your-folder-project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Beautiful, readable and very user-friendly design based on PSR-7&lt;/li&gt;
+&lt;li&gt;Well-tested and optimized&lt;/li&gt;
+&lt;li&gt;Extra configuration, easy to customize the stack&lt;/li&gt;
+&lt;li&gt;Have I said &amp;ldquo;GOOD ENOUGH&amp;rdquo; ? Sure, it&amp;rsquo;s good enough for a RESTful API webservice&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See the &lt;a href=&#34;https://slimfit.khanhicetea.com/getting-started/&#34;&gt;getting started guide&lt;/a&gt; for instructions how to get
+it up and running.&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Last but not least a big thank you to &lt;a href=&#34;https://github.com/slimphp/Slim#credits&#34;&gt;Slim contributors&lt;/a&gt;. They created the good base framework to build this stack.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting started</title>
+      <link>https://slimfit.khanhicetea.com/getting-started/</link>
+      <pubDate>Sat, 20 Aug 2016 00:11:02 +0100</pubDate>
+      
+      <guid>https://slimfit.khanhicetea.com/getting-started/</guid>
+      <description>
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;h3 id=&#34;installing-slimfit&#34;&gt;Installing SlimFit&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;composer create-project khanhicetea/slimfit your-folder-project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;setup-webserver&#34;&gt;Setup webserver&lt;/h3&gt;
+
+&lt;p&gt;Next, assuming you have a popular webserver like Apache2 or Nginx&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Apache 2 : just point the document root of virtualhost to &lt;strong&gt;public&lt;/strong&gt; folder and enable &lt;strong&gt;rewrite&lt;/strong&gt; mod if you want to use rewrite url feature.&lt;/li&gt;
+&lt;li&gt;Nginx : use this sample site config, (replace the &lt;strong&gt;fastcgi_pass&lt;/strong&gt; if you use UNIX sock)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
+    listen 80;
+    server_name slimfit.dev; 
+
+    root /www/slimfit/public;
+    index index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass localhost:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;config-environment&#34;&gt;Config environment&lt;/h2&gt;
+
+&lt;p&gt;Copy at the &lt;strong&gt;.env.example&lt;/strong&gt; to &lt;strong&gt;.env&lt;/strong&gt; in the root directory of your website. Overwrite the existing config file if necessary.&lt;/p&gt;
+
+&lt;p&gt;Let me explain detail of environments&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-env&#34;&gt;# Your app name
+APP_NAME=SlimFit
+# Your app secret key, use for encrypt data or JWT token
+APP_KEY=hard_to_guess
+
+# Enable debug error mode
+DEBUG=true
+
+# Default timezone
+TIMEZONE=&amp;quot;UTC&amp;quot;
+
+# Database config
+DB_DRIVER=mysql
+DB_HOST=localhost
+DB_DATABASE=slimfit
+DB_USERNAME=root
+DB_PASSWORD=secret
+DB_CHARSET=utf8
+DB_COLLATION=utf8_unicode_ci
+DB_PREFIX=
+DB_LOG=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can go to home page of application to see the &lt;strong&gt;hello world&lt;/strong&gt; message :)&lt;/p&gt;
+
+&lt;h2 id=&#34;project-folder-struture&#34;&gt;Project folder struture&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;app&lt;/strong&gt; : Application classes (included Console Commands, Http Stack, Database Models and Service Providers)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bootstrap&lt;/strong&gt; : bootstrap files (first run before running the app)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;config&lt;/strong&gt; : configuration files (app, database and console, etc &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;db&lt;/strong&gt; : database files (migration and seeder files)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;public&lt;/strong&gt; : your public folder - document root (index.php, assets and public files)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;resources&lt;/strong&gt; : resources files (templates or language files)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;storage&lt;/strong&gt; : application storage (cache, log)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tests&lt;/strong&gt; : PHPUnit testcase files&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTTP Stack</title>
+      <link>https://slimfit.khanhicetea.com/http-stack/</link>
+      <pubDate>Sun, 21 Aug 2016 00:56:50 +0100</pubDate>
+      
+      <guid>https://slimfit.khanhicetea.com/http-stack/</guid>
+      <description>
+
+&lt;h2 id=&#34;http-stack&#34;&gt;HTTP Stack&lt;/h2&gt;
+
+&lt;p&gt;To be updated &amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://slimfit.khanhicetea.com/license/</link>
+      <pubDate>Sat, 20 Aug 2016 20:10:46 +0100</pubDate>
+      
+      <guid>https://slimfit.khanhicetea.com/license/</guid>
+      <description>
+
+&lt;h2 id=&#34;mit-license&#34;&gt;MIT LICENSE&lt;/h2&gt;
+
+&lt;p&gt;Copyright &amp;copy; 2016 Khanh Nguyen &lt;a href=&#34;mailto:khanhicetea@gmail.com&#34;&gt;khanhicetea@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:&lt;/p&gt;
+
+&lt;p&gt;The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.&lt;/p&gt;
+
+&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

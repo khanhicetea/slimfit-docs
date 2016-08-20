@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Http-stacks on SlimFit Docs</title>
+    <link>https://slimfit.khanhicetea.com/http-stack/</link>
+    <description>Recent content in Http-stacks on SlimFit Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Aug 2016 00:56:50 +0100</lastBuildDate>
+    <atom:link href="https://slimfit.khanhicetea.com/http-stack/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTTP Stack</title>
+      <link>https://slimfit.khanhicetea.com/http-stack/</link>
+      <pubDate>Sun, 21 Aug 2016 00:56:50 +0100</pubDate>
+      
+      <guid>https://slimfit.khanhicetea.com/http-stack/</guid>
+      <description>
+
+&lt;h2 id=&#34;http-stack&#34;&gt;HTTP Stack&lt;/h2&gt;
+
+&lt;p&gt;To be updated &amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
