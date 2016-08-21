@@ -8,3 +8,4 @@ then
     exit 1
 fi
 
+git add -A

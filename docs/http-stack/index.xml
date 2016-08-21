@@ -208,7 +208,7 @@ $app-&amp;gt;group(&#39;/api/me&#39;, function() {
 
 &lt;p&gt;This would add a token authentication layer to &lt;code&gt;/api/me&lt;/code&gt; group of routes.&lt;/p&gt;
 
-&lt;h3 id=&#34;reuse-middleware-by-injecting-it-to-dependency-injection-container-only-in-slimfit&#34;&gt;Reuse middleware by injecting it to Dependency Injection Container (only in SlimFit)&lt;/h3&gt;
+&lt;h3 id=&#34;reusing-middleware-by-injecting-it-to-dependency-injection-container-works-only-in-slimfit&#34;&gt;Reusing middleware by injecting it to Dependency Injection Container (works only in SlimFit)&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;File app/Http/Middleware/Token.php&lt;/em&gt;&lt;/p&gt;
 
