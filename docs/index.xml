@@ -24,8 +24,8 @@
 &lt;p&gt;SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.&lt;/p&gt;
 
 &lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;Notice&lt;/p&gt;
-&lt;p&gt;If you are looking for a website framework, please try another one.&lt;/p&gt;
+&lt;p class=&#34;admonition-title&#34;&gt;Rasmus Lerdorf&lt;/p&gt;
+&lt;p&gt;All general purpose PHP frameworks suck!&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;

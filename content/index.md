@@ -11,8 +11,8 @@ SlimFit is a framework for only purpose - RESTful API webservice, it's fast and 
 
 SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.
 
-{{< note title="Notice" >}}
-If you are looking for a website framework, please try another one.
+{{< note title="Rasmus Lerdorf" >}}
+All general purpose PHP frameworks suck!
 {{< /note >}}
 
 ## Quick start
