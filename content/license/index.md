@@ -1,7 +1,7 @@
 ---
 date: 2016-08-20T20:10:46+01:00
 title: License
-weight: 40
+weight: 3
 ---
 
 ## MIT LICENSE
