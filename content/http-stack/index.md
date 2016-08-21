@@ -197,7 +197,7 @@ $app->group('/api/me', function() {
 
 This would add a token authentication layer to `/api/me` group of routes.
 
-### Reuse middleware by injecting it to Dependency Injection Container (only in SlimFit)
+### Reusing middleware by injecting it to Dependency Injection Container (works only in SlimFit)
 
 *File app/Http/Middleware/Token.php*
 ```php
