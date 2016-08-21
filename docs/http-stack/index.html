@@ -288,7 +288,242 @@
 
 <h2 id="http-stack">HTTP Stack</h2>
 
-<p>To be updated &hellip;</p>
+<p>In SlimFit, we have a HTTP Kernel handles request and return a response. That is how a webservice works.</p>
+
+<p>HTTP Kernel is a middlewares stack, where each middleware receive a request, process the request or pass it to next middleware, and finally return a response.</p>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Below part of document has been copied from <a href="http://www.slimframework.com/docs/concepts/middleware.html">Slim Framework docs</a>, and I changed some place to fit with SlimFit.</p>
+</div>
+
+<h2 id="what-is-middleware">What is middleware?</h2>
+
+<p>Technically speaking, a middleware is a <em>callable</em> that accepts three arguments:</p>
+
+<ol>
+<li><code>\Psr\Http\Message\ServerRequestInterface</code> - The PSR7 request object</li>
+<li><code>\Psr\Http\Message\ResponseInterface</code> - The PSR7 response object</li>
+<li><code>callable</code> - The next middleware callable</li>
+</ol>
+
+<p>It can do whatever is appropriate with these objects. The only hard requirement
+is that a middleware <strong>MUST</strong> return an instance of <code>\Psr\Http\Message\ResponseInterface</code>.
+Each middleware <strong>SHOULD</strong> invoke the next middleware and pass it Request and
+Response objects as arguments.</p>
+
+<h2 id="how-does-middleware-work">How does middleware work?</h2>
+
+<p>Different frameworks use middleware differently. Slim adds middleware as concentric
+layers surrounding your core application. Each new middleware layer surrounds
+any existing middleware layers. The concentric structure expands outwardly as
+additional middleware layers are added.</p>
+
+<p><strong>The last middleware layer added is the first to be executed.</strong></p>
+
+<p>When you run the Slim application, the Request and Response objects traverse the
+middleware structure from the outside in. They first enter the outer-most middleware,
+then the next outer-most middleware, (and so on), until they ultimately arrive
+at the Slim application itself. After the Slim application dispatches the
+appropriate route, the resultant Response object exits the Slim application and
+traverses the middleware structure from the inside out. Ultimately, a final
+Response object exits the outer-most middleware, is serialized into a raw HTTP
+response, and is returned to the HTTP client. Here&rsquo;s a diagram that illustrates
+the middleware process flow:</p>
+
+<p><img src="https://slimfit.khanhicetea.com/images/middleware_stack.png" alt="Middleware Stack" /></p>
+
+<h2 id="how-do-i-write-middleware">How do I write middleware?</h2>
+
+<p>Middleware is a callable that accepts three arguments: a Request object, a Response object, and the next middleware. Each middleware <strong>MUST</strong> return an instance of <code>\Psr\Http\Message\ResponseInterface</code>.</p>
+
+<h3 id="closure-middleware-example">Closure middleware example.</h3>
+
+<p>This example middleware is a Closure.</p>
+
+<pre><code>&lt;?php
+/**
+ * Example middleware closure
+ *
+ * @param  \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
+ * @param  \Psr\Http\Message\ResponseInterface      $response PSR7 response
+ * @param  callable                                 $next     Next middleware
+ *
+ * @return \Psr\Http\Message\ResponseInterface
+ */
+function ($request, $response, $next) {
+    $response-&gt;getBody()-&gt;write('BEFORE');
+    $response = $next($request, $response);
+    $response-&gt;getBody()-&gt;write('AFTER');
+
+    return $response;
+};
+</code></pre>
+
+<h3 id="invokable-class-middleware-example">Invokable class middleware example</h3>
+
+<p>This example middleware is an invokable class that implements the magic <code>__invoke()</code> method.</p>
+
+<pre><code>&lt;?php
+class ExampleMiddleware
+{
+    /**
+     * Example middleware invokable class
+     *
+     * @param  \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
+     * @param  \Psr\Http\Message\ResponseInterface      $response PSR7 response
+     * @param  callable                                 $next     Next middleware
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function __invoke($request, $response, $next)
+    {
+        $response-&gt;getBody()-&gt;write('BEFORE');
+        $response = $next($request, $response);
+        $response-&gt;getBody()-&gt;write('AFTER');
+
+        return $response;
+    }
+}
+</code></pre>
+
+<p>To use this class as a middleware, you can use <code>-&gt;add( new ExampleMiddleware() );</code> function chain after the <code>$app</code>, <code>Route</code>,  or <code>group()</code>, which in the code below, any one of these, could represent $subject.</p>
+
+<pre><code>$subject-&gt;add( new ExampleMiddleware() );
+</code></pre>
+
+<h2 id="how-do-i-add-middleware">How do I add middleware?</h2>
+
+<p>You may add middleware to a Slim application, to an individual Slim application route or to a route group. All scenarios accept the same middleware and implement the same middleware interface.</p>
+
+<h3 id="application-middleware">Application middleware</h3>
+
+<p>Application middleware is invoked for every <em>incoming</em> HTTP request. Add application middleware with the Slim application instance&rsquo;s <code>add()</code> method. We recommend use class as a middleware, you can define new one in <code>app/Http/Middleware</code> folder with namespace <code>App\Http\Middleware</code></p>
+
+<p><em>File : app/Http/Middleware/Example.php</em></p>
+
+<pre><code>&lt;?php
+namespace App\Http\Middleware;
+
+class Example
+{
+    public function __invoke($request, $response, $next)
+    {
+        $response-&gt;getBody()-&gt;write('SLIM');
+        $response = $next($request, $response);
+        $response-&gt;getBody()-&gt;write('FIT');
+
+        return $response;
+    }
+}
+</code></pre>
+
+<p>Then add it in <code>defaultAppMiddlewares</code> method of <code>app/Http/Kernel.php</code> class</p>
+
+<pre><code>    public function defaultAppMiddlewares()
+    {
+        /* Other middlewares */
+        $this-&gt;appendAppMiddleware(new \App\Http\Middleware\Example());
+        /* Other middlewares */
+    }
+</code></pre>
+
+<p>This would output this HTTP response body:</p>
+
+<pre><code>SLIM [controller response content] FIT
+</code></pre>
+
+<h3 id="route-middleware">Route middleware</h3>
+
+<p>Route middleware is invoked <em>only if</em> its route matches the current HTTP request method and URI. Route middleware is specified immediately after you invoke any of the Slim application&rsquo;s routing methods (e.g., <code>get()</code> or <code>post()</code>). Each routing method returns an instance of <code>\Slim\Route</code>, and this class provides the same middleware interface as the Slim application instance. Add middleware to a Route with the Route instance&rsquo;s <code>add()</code> method. This example adds the Closure middleware example above:</p>
+
+<pre><code>&lt;?php
+$mw = function ($request, $response, $next) {
+    $token = $request-&gt;getHeaderLine('Authorization');
+    if ($token &amp;&amp; verify_token($token)) {
+        return $next($request, $response);
+    }
+    return $response-&gt;withStatus(401);
+};
+
+$app-&gt;get('/secret', function ($request, $response, $args) {
+	$response-&gt;getBody()-&gt;write(' This is secret zone ');
+	return $response;
+})-&gt;add($mw);
+</code></pre>
+
+<p>This would add a token authentication layer to your secret route.</p>
+
+<h3 id="group-middleware">Group Middleware</h3>
+
+<p>In addition to the overall application, and standard routes being able to accept middleware, the <code>group()</code> multi-route definition functionality, also allows individual routes internally. Route group middleware is invoked <em>only if</em> its route matches one of the defined HTTP request methods and URIs from the group. To add middleware within the callback, and entire-group middleware to be set by chaining <code>add()</code> after the <code>group()</code> method.</p>
+
+<p>Sample Application, making use of callback middleware on a group of url-handlers</p>
+
+<pre><code>&lt;?php
+$mw = function ($request, $response, $next) {
+    $token = $request-&gt;getHeaderLine('Authorization');
+    if ($token &amp;&amp; verify_token($token)) {
+        return $next($request, $response);
+    }
+    return $response-&gt;withStatus(401);
+};
+
+$app-&gt;group('/api/me', function() {
+    $this-&gt;get('/info', 'User:info')-&gt;setName('api_me_info');
+    $this-&gt;put('/info', 'User:updateInfo')-&gt;setName('api_me_update_info');
+})-&gt;add($mw);
+</code></pre>
+
+<p>This would add a token authentication layer to <code>/api/me</code> group of routes.</p>
+
+<h3 id="reuse-middleware-by-injecting-it-to-dependency-injection-container-only-in-slimfit">Reuse middleware by injecting it to Dependency Injection Container (only in SlimFit)</h3>
+
+<p><em>File app/Http/Middleware/Token.php</em></p>
+
+<pre><code class="language-php">&lt;?php
+namespace App\Htpp\Middleware;
+
+class Token
+{
+    public function __invoke($request, $response, $next)
+    {
+        $token = $request-&gt;getHeaderLine('Authorization');
+        if ($token &amp;&amp; verify_token($token)) {
+            return $next($request, $response);
+        }
+        return $response-&gt;withStatus(401);
+    }
+}
+</code></pre>
+
+<p><em>File app/Http/Kernel.php</em></p>
+
+<pre><code class="language-php">    public function defaultRouteMiddlewares()
+    {
+        $this-&gt;setRouteMiddleware('token', new \App\Http\Middleware\Token());
+    }
+</code></pre>
+
+<p>When you want to use this middleware, just add prefix <code>mw_</code> to there middleware alias named.</p>
+
+<pre><code class="language-php">$group_or_route-&gt;add('mw_token');
+</code></pre>
+
+<h3 id="passing-variables-from-middleware">Passing variables from middleware</h3>
+
+<p>The easiest way to pass attributes from middleware is to use the request&rsquo;s
+attributes.</p>
+
+<p>Setting the variable in the middleware:</p>
+
+<pre><code>$request = $request-&gt;withAttribute('foo', 'bar');
+</code></pre>
+
+<p>Getting the variable in the route callback:</p>
+
+<pre><code>$foo = $request-&gt;getAttribute('foo');
+</code></pre>
 
 
 			<aside class="copyright" role="note">
