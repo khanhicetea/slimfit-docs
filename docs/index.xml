@@ -391,6 +391,10 @@ attributes.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$foo = $request-&amp;gt;getAttribute(&#39;foo&#39;);
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;good-collection-of-middlewares&#34;&gt;Good collection of middlewares&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;If you are looking for a common middleware, please have a look &lt;a href=&#34;https://github.com/oscarotero/psr7-middlewares&#34;&gt;this collection&lt;/a&gt;&lt;/strong&gt;. Thanks to &lt;a href=&#34;https://github.com/oscarotero&#34;&gt;Oscar Otero&lt;/a&gt; for creating this collection.&lt;/p&gt;
 </description>
     </item>
     
