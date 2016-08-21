@@ -4,6 +4,7 @@ title = "SlimFit Docs"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
 canonifyurls = true
+publishdir = "docs"
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
 
