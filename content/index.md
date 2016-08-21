@@ -2,6 +2,7 @@
 date: 2016-08-20T21:07:13+01:00
 title: SlimFit - Good Enough RESTful API Framework
 type: index
+weight: 0
 ---
 
 ## Beautiful API design

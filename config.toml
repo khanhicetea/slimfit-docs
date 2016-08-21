@@ -1,6 +1,6 @@
 baseurl = "https://slimfit.khanhicetea.com/"
 languageCode = "en-us"
-title = "SlimFit Docs"
+title = "SlimFit Documenation"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
 canonifyurls = true
