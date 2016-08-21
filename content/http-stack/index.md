@@ -249,4 +249,4 @@ $foo = $request->getAttribute('foo');
 
 ### Good collection of middlewares
 
-**If you are looking for a common middleware, please have a look [this collection](https://github.com/oscarotero/psr7-middlewares)**. Thanks to [Oscar Otero](https://github.com/oscarotero) for creating this collection.
+If you are looking for a common middleware, please have a look [this collection](https://github.com/oscarotero/psr7-middlewares). Thanks to [Oscar Otero](https://github.com/oscarotero) for creating this collection.
