@@ -10,6 +10,14 @@ article p img {
     margin: 0 auto;
 }
 
+.article .wrapper {
+    padding: 80px 24px 96px;
+}
+
+.article h1 {
+    padding: 20px 0;
+}
+
 .article code {
     background-color: transparent;
 }

@@ -1,6 +1,6 @@
 ---
 date: 2016-08-21T00:56:50+01:00
-title: HTTP Stack
+title: HTTP Kernel
 weight: 2
 ---
 

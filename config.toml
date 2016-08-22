@@ -6,7 +6,7 @@ metadataformat = "yaml"
 canonifyurls = true
 publishdir = "docs"
 # Enable Google Analytics by entering your tracking id
-googleAnalytics = ""
+googleAnalytics = "UA-50390703-2"
 
 [params]
 	# General information
@@ -61,8 +61,8 @@ googleAnalytics = ""
 	weight = 20
 
 [[menu.main]]
-	name   = "HTTP Stack"
-	url    = "http-stack/"
+	name   = "HTTP Kernel"
+	url    = "http-kernel/"
 	weight = 30
 
 [[menu.main]]
