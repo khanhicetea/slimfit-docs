@@ -15,6 +15,8 @@ SlimFit is very lightweight – it is built from scratch using Pimple as DI Cont
 All general purpose PHP frameworks suck!
 {{< /note >}}
 
+![meme](/images/solve-any-problem-meme.jpg)
+
 ## Quick start
 
 Install with `composer`:
@@ -29,6 +31,7 @@ composer create-project khanhicetea/slimfit your-folder-project
 - Well-tested and optimized
 - Extra configuration, easy to customize the stack
 - Have I said "GOOD ENOUGH" ? Sure, it's good enough for a RESTful API webservice
+- Compatible with React PHP to boosting the application speed to new level via [PHP PPM](https://github.com/php-pm/php-pm)
 
 See the [getting started guide]({{< relref "getting-started/index.md" >}}) for instructions how to get
 it up and running.

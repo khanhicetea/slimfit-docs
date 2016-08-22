@@ -56,14 +56,29 @@ googleAnalytics = ""
 	weight = 10
 
 [[menu.main]]
+	name   = "Concepts"
+	url    = "concepts/"
+	weight = 20
+
+[[menu.main]]
 	name   = "HTTP Stack"
 	url    = "http-stack/"
-	weight = 20
+	weight = 30
+
+[[menu.main]]
+	name   = "Routing - Controller"
+	url    = "routing/"
+	weight = 40
+
+[[menu.main]]
+	name   = "Service Providers"
+	url    = "service-provider/"
+	weight = 50
 
 [[menu.main]]
 	name   = "License"
 	url    = "license/"
-	weight = 40
+	weight = 60
 
 
 [blackfriday]
