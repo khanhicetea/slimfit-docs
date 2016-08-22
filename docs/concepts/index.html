@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>License - SlimFit Documenation</title>
+    <title>Concepts - SlimFit Documenation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
     
-    <link rel="canonical" href="https://slimfit.khanhicetea.com/license/">
+    <link rel="canonical" href="https://slimfit.khanhicetea.com/concepts/">
     
     <meta name="author" content="khanhicetea">
     
 
-    <meta property="og:url" content="https://slimfit.khanhicetea.com/license/">
+    <meta property="og:url" content="https://slimfit.khanhicetea.com/concepts/">
     <meta property="og:title" content="SlimFit Documenation">
     <meta property="og:image" content="https://slimfit.khanhicetea.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="SlimFit Documenation">
@@ -97,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        License
+        Concept
       </div>
     </div>
 
@@ -218,11 +218,14 @@
 
 
 
-<a  title="Concepts" href="https://slimfit.khanhicetea.com/concepts/">
+<a class="current" title="Concepts" href="https://slimfit.khanhicetea.com/concepts/">
 	
 	Concepts
 </a>
 
+
+<ul id="scrollspy">
+</ul>
 
   
 </li>
@@ -286,14 +289,11 @@
 
 
 
-<a class="current" title="License" href="https://slimfit.khanhicetea.com/license/">
+<a  title="License" href="https://slimfit.khanhicetea.com/license/">
 	
 	License
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -333,31 +333,69 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>License </h1>
+			<h1>Concepts </h1>
 
 			
 
-<h2 id="mit-license">MIT LICENSE</h2>
+<h2 id="slimfit-application">SlimFit Application</h2>
 
-<p>Copyright &copy; 2016 Khanh Nguyen <a href="mailto:khanhicetea@gmail.com">khanhicetea@gmail.com</a></p>
+<p>SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.</p>
 
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
+<h3 id="get-application-instance">Get application instance</h3>
 
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
+<pre><code class="language-php">$app = \App\SlimFit::getInstance()
+// or use helper function
+$app = app();
+</code></pre>
 
-<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</p>
+<h2 id="dependency-container">Dependency Container</h2>
+
+<p>SlimFit uses <a href="http://pimple.sensiolabs.org/">Pimple</a> as Dependency Container because it&rsquo;s very lightweight and flexible. You can read its documentation in Homepage.</p>
+
+<h3 id="get-service-factory-by-key">Get service, factory by key</h3>
+
+<pre><code class="language-php">$container = app()-&gt;getContainer();
+$value = $container-&gt;get($key);
+$value2 = $container[$key2]
+// or use helper function
+$value3 = app($key3);
+</code></pre>
+
+<h3 id="get-application-config">Get application config</h3>
+
+<p>SlimFit application autoload all PHP files in <code>config</code> folder to retrieve array of config then put in DI Container via a namespace key <code>config.[filename_without_extension]</code>.</p>
+
+<p><em>File : config/console.php</em></p>
+
+<pre><code class="language-php">return [
+    'console.name' =&gt; 'SlimFit console',
+] 
+</code></pre>
+
+<p><em>Getting that config</em></p>
+
+<pre><code class="language-php">$console_name = $container['config.console']['console.name'];
+// or short way
+$console_name = app('config.console')['console.name'];
+</code></pre>
+
+<h2 id="service-provider">Service provider</h2>
+
+<p>Service provider <strong>MUST</strong> implements <code>\Pimple\ServiceProviderInterface</code>
+We have some common service providers in <code>app\ServiceProvider</code> : Monolog, Console, Capsule and Twig</p>
+
+<p>You <strong>SHOULD</strong> register service provider in bootstraping of Application at <code>bootstrap/app.php</code>, you can see we had 2 core service providers : Monolog and HttpKernel</p>
+
+<pre><code class="language-php">$service_providers = [
+    App\ServiceProvider\Monolog::class =&gt; [], 
+    App\ServiceProvider\HttpKernel::class =&gt; [], 
+
+    // Your service providers below
+    App\ServiceProvider\Example::class =&gt; $config_replace_in_container, 
+];
+</code></pre>
+
+<p>where <code>$config_replace_in_container</code> is an array of key-value config will be replaced in DI Container.</p>
 
 
 			<aside class="copyright" role="note">
@@ -376,7 +414,7 @@ SOFTWARE.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://slimfit.khanhicetea.com/service-provider/" title="Service Providers">
+      <a href="https://slimfit.khanhicetea.com/http-stack/" title="HTTP Stack">
         <span class="direction">
           Previous
         </span>
@@ -386,7 +424,7 @@ SOFTWARE.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Service Providers
+              HTTP Stack
             </div>
           </div>
         </div>
@@ -395,6 +433,22 @@ SOFTWARE.</p>
   </div>
 
   <div class="next">
+  
+      <a href="https://slimfit.khanhicetea.com/routing/" title="Routing - Controller">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Routing - Controller
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
   
   </div>
 </nav>
