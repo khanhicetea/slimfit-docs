@@ -76,9 +76,14 @@ googleAnalytics = "UA-50390703-2"
 	weight = 50
 
 [[menu.main]]
+	name   = "Addons"
+	url    = "addons/"
+	weight = 60
+
+[[menu.main]]
 	name   = "License"
 	url    = "license/"
-	weight = 60
+	weight = 70
 
 
 [blackfriday]

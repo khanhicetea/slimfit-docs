@@ -75,7 +75,7 @@ We have some common service providers in &lt;code&gt;app\ServiceProvider&lt;/cod
 ];
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;where &lt;code&gt;$config_replace_in_container&lt;/code&gt; is an array of key-value config will be replaced in DI Container.&lt;/p&gt;
+&lt;p&gt;which &lt;code&gt;$config_replace_in_container&lt;/code&gt; is an array of key-value config will be replaced in DI Container.&lt;/p&gt;
 </description>
     </item>
     

@@ -67,4 +67,4 @@ $service_providers = [
 ];
 ```
 
-where `$config_replace_in_container` is an array of key-value config will be replaced in DI Container.
+which `$config_replace_in_container` is an array of key-value config will be replaced in DI Container.
