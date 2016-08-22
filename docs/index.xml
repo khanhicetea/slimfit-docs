@@ -547,7 +547,136 @@ class User extends Base
       <pubDate>Sun, 21 Aug 2016 02:56:50 +0100</pubDate>
       
       <guid>https://slimfit.khanhicetea.com/service-provider/</guid>
-      <description>&lt;p&gt;To be updated &amp;hellip;&lt;/p&gt;
+      <description>
+
+&lt;h2 id=&#34;twig-template-engine&#34;&gt;Twig template engine&lt;/h2&gt;
+
+&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
+
+&lt;p&gt;Require composer package&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ composer require slim/twig-view
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, uncomment the line register Twig Service Provider in &lt;code&gt;bootstrap/app.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;All templates is stored in &lt;code&gt;resources/views&lt;/code&gt; folder&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;File resource/views/email.html&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-twig&#34;&gt;&amp;lt;h1&amp;gt;Dear {{ name|e }},&amp;lt;/a&amp;gt;
+
+Thanks for using our service :) Have a good time !
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Render template&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$body = app(&#39;view&#39;)-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39; =&amp;gt; &#39;KhanhIceTea&#39;]);
+// Or use $this in controller
+$body = $this-&amp;gt;view-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39; =&amp;gt; &#39;KhanhIceTea&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;eloquent&#34;&gt;Eloquent&lt;/h2&gt;
+
+&lt;p&gt;Eloquent is a very good query builder out there. Checkout its documentation &lt;a href=&#34;https://laravel.com/docs/master/eloquent&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;install-1&#34;&gt;Install&lt;/h3&gt;
+
+&lt;p&gt;Require composer package&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ composer require illuminate/events
+$ composer require illuminate/database
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, uncomment the line register Capsule Service Provider in &lt;code&gt;bootstrap/app.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;usage-1&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;All application models &lt;strong&gt;MUST&lt;/strong&gt; extend &lt;code&gt;App\Model\Base&lt;/code&gt; to use the Eloquent. Because we init &lt;code&gt;capsule&lt;/code&gt; service when composer autoloads the &lt;code&gt;Base&lt;/code&gt; model.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;File app/Model/User.php&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+namespace App\Model;
+
+class User extends Base
+{
+    protected $table = &#39;user&#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Use models&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$user = App\Model\User::find(1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;If you want to use &lt;a href=&#34;https://laravel.com/docs/master/database&#34;&gt;DB&lt;/a&gt; facade like Laravel, we already had it in App\DB&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;use App\DB;
+
+/* count and group user by status */
+$users = DB::table(&#39;users&#39;)
+    -&amp;gt;select(DB::raw(&#39;count(*) as user_count, status&#39;))
+    -&amp;gt;where(&#39;status&#39;, &#39;&amp;lt;&amp;gt;&#39;, 1)
+    -&amp;gt;groupBy(&#39;status&#39;)
+    -&amp;gt;get();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;console&#34;&gt;Console&lt;/h2&gt;
+
+&lt;p&gt;SlimFit used &lt;code&gt;symfony/console&lt;/code&gt; to manage console application&lt;/p&gt;
+
+&lt;h3 id=&#34;install-2&#34;&gt;Install&lt;/h3&gt;
+
+&lt;p&gt;Require composer package&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ composer require symfony/console
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, uncomment the line register Console Service Provider in &lt;code&gt;bootstrap/app.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;usage-2&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;All console commands &lt;strong&gt;SHOULD&lt;/strong&gt; have namespace &lt;code&gt;app\Console\Command&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;File app/Console/Command/Hello.php&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+namespace App\Console\Command;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class Hello extends Command
+{
+    protected function configure()
+    {
+        $this
+            -&amp;gt;setName(&#39;hello&#39;)
+            -&amp;gt;setDescription(&#39;Hello world&#39;);
+    }
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $output-&amp;gt;writeln(&#39;Hello World !&#39;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Register command to console application by put it to config/console.php&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &#39;console.commands&#39; =&amp;gt; [
+        App\Console\Command\QuoteOfDay::class,
+        App\Console\Command\Hello::class,
+    ],
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;running-command&#34;&gt;Running command&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ php console hello
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
