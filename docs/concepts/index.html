@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Concepts - SlimFit Documenation</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.18.1" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
@@ -69,14 +69,12 @@
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
     
+    <link href="https://slimfit.khanhicetea.com/concepts/index.xml" rel="alternate" type="application/rss+xml" title="SlimFit Documenation" />
+    <link href="https://slimfit.khanhicetea.com/concepts/index.xml" rel="feed" type="application/rss+xml" title="SlimFit Documenation" />
+    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
-
-
-
-	
-	
 
 
 <div class="backdrop">
@@ -143,9 +141,6 @@
       
       <div class="name">
         <strong>SlimFit Documenation <span class="version">1.1.0</span></strong>
-        
-          <br>
-          khanhicetea/slimfit
         
       </div>
     </div>
@@ -350,131 +345,30 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Concepts </h1>
+			<h1>Pages in Concept</h1>
 
 			
+			<a href="https://slimfit.khanhicetea.com/concepts/" title="Concepts">
+				<h2>Concepts</h2>
+			</a>
 
-<h2 id="slimfit-application">SlimFit Application</h2>
+			<br>
+			SlimFit Application SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.
+Get application instance $app = \App\SlimFit::getInstance() // or use helper function $app = app();  Dependency Container SlimFit uses Pimple as Dependency Container because it&rsquo;s very lightweight and flexible. You can read its documentation in Homepage.
+Get service, factory by key $container = app()-&gt;getContainer(); $value = $container-&gt;get($key); $value2 = $container[$key2] // or use helper function $value3 = app($key3);  Get application config SlimFit application autoload all PHP files in config folder to retrieve array of config then put in DI Container via a namespace key config.
 
-<p>SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.</p>
-
-<h3 id="get-application-instance">Get application instance</h3>
-
-<pre><code class="language-php">$app = \App\SlimFit::getInstance()
-// or use helper function
-$app = app();
-</code></pre>
-
-<h2 id="dependency-container">Dependency Container</h2>
-
-<p>SlimFit uses <a href="http://pimple.sensiolabs.org/">Pimple</a> as Dependency Container because it&rsquo;s very lightweight and flexible. You can read its documentation in Homepage.</p>
-
-<h3 id="get-service-factory-by-key">Get service, factory by key</h3>
-
-<pre><code class="language-php">$container = app()-&gt;getContainer();
-$value = $container-&gt;get($key);
-$value2 = $container[$key2]
-// or use helper function
-$value3 = app($key3);
-</code></pre>
-
-<h3 id="get-application-config">Get application config</h3>
-
-<p>SlimFit application autoload all PHP files in <code>config</code> folder to retrieve array of config then put in DI Container via a namespace key <code>config.[filename_without_extension]</code>.</p>
-
-<p><em>File : config/console.php</em></p>
-
-<pre><code class="language-php">return [
-    'console.name' =&gt; 'SlimFit console',
-] 
-</code></pre>
-
-<p><em>Getting that config</em></p>
-
-<pre><code class="language-php">$console_name = $container['config.console']['console.name'];
-// or short way
-$console_name = app('config.console')['console.name'];
-</code></pre>
-
-<h2 id="service-provider">Service provider</h2>
-
-<p>Service provider <strong>MUST</strong> implements <code>\Pimple\ServiceProviderInterface</code>
-We have some common service providers in <code>app\ServiceProvider</code> : Monolog, Console, Capsule and Twig</p>
-
-<p>You <strong>SHOULD</strong> register service provider in bootstraping of Application at <code>bootstrap/app.php</code>, you can see we had 2 core service providers : Monolog and HttpKernel</p>
-
-<pre><code class="language-php">$service_providers = [
-    App\ServiceProvider\Monolog::class =&gt; [], 
-    App\ServiceProvider\HttpKernel::class =&gt; [], 
-
-    // Your service providers below
-    App\ServiceProvider\Example::class =&gt; $config_replace_in_container, 
-];
-</code></pre>
-
-<p>which <code>$config_replace_in_container</code> is an array of key-value config will be replaced in DI Container.</p>
-
+			<hr>
+			
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2016 Released under the MIT license &ndash;
+				&copy; 2017 Released under the MIT license &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
-
-			<footer class="footer">
-				
-
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  
-      <a href="https://slimfit.khanhicetea.com/http-kernel/" title="HTTP Kernel">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              HTTP Kernel
-            </div>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-
-  <div class="next">
-  
-      <a href="https://slimfit.khanhicetea.com/routing/" title="Routing - Controller">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Routing - Controller
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-</nav>
-
-
-
-
-
-			</footer>
 		</div>
 	</article>
 
@@ -490,8 +384,8 @@ We have some common service providers in <code>app\ServiceProvider</code> : Mono
 
     <script>
     
-      var base_url = 'https:\/\/slimfit.khanhicetea.com\/';
-      var repo_id  = 'khanhicetea\/slimfit';
+      var base_url = '';
+      var repo_id  = '';
     
     </script>
 

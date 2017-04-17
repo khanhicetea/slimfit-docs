@@ -9,8 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Service Providers - SlimFit Documenation</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <title>Service-providers - SlimFit Documenation</title>
+    <meta name="generator" content="Hugo 0.18.1" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
@@ -69,14 +69,12 @@
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
     
+    <link href="https://slimfit.khanhicetea.com/service-provider/index.xml" rel="alternate" type="application/rss+xml" title="SlimFit Documenation" />
+    <link href="https://slimfit.khanhicetea.com/service-provider/index.xml" rel="feed" type="application/rss+xml" title="SlimFit Documenation" />
+    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
-
-
-
-	
-	
 
 
 <div class="backdrop">
@@ -97,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Service Provider
+        Service-provider
       </div>
     </div>
 
@@ -143,9 +141,6 @@
       
       <div class="name">
         <strong>SlimFit Documenation <span class="version">1.1.0</span></strong>
-        
-          <br>
-          khanhicetea/slimfit
         
       </div>
     </div>
@@ -350,200 +345,33 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Service Providers </h1>
+			<h1>Pages in Service-provider</h1>
 
 			
+			<a href="https://slimfit.khanhicetea.com/service-provider/" title="Service Providers">
+				<h2>Service Providers</h2>
+			</a>
 
-<h2 id="twig-template-engine">Twig template engine</h2>
+			<br>
+			Twig template engine Install Require composer package
+$ composer require slim/twig-view  Then, uncomment the line register Twig Service Provider in bootstrap/app.php
+Usage All templates is stored in resources/views folder
+File resource/views/email.html
+&lt;h1&gt;Dear {{ name|e }},&lt;/a&gt; Thanks for using our service :) Have a good time !  Render template
+$body = app(&lsquo;view&rsquo;)-&gt;render(&lsquo;email.html&rsquo;, [&lsquo;name&rsquo; =&gt; &lsquo;KhanhIceTea&rsquo;]); // Or use $this in controller $body = $this-&gt;view-&gt;render(&lsquo;email.html&rsquo;, [&lsquo;name&rsquo; =&gt; &lsquo;KhanhIceTea&rsquo;]);  Eloquent Eloquent is a very good query builder out there.
 
-<h3 id="install">Install</h3>
-
-<p>Require composer package</p>
-
-<pre><code>$ composer require slim/twig-view
-</code></pre>
-
-<p>Then, uncomment the line register Twig Service Provider in <code>bootstrap/app.php</code></p>
-
-<h3 id="usage">Usage</h3>
-
-<p>All templates is stored in <code>resources/views</code> folder</p>
-
-<p><em>File resource/views/email.html</em></p>
-
-<pre><code class="language-twig">&lt;h1&gt;Dear {{ name|e }},&lt;/a&gt;
-
-Thanks for using our service :) Have a good time !
-</code></pre>
-
-<p><em>Render template</em></p>
-
-<pre><code class="language-php">$body = app('view')-&gt;render('email.html', ['name' =&gt; 'KhanhIceTea']);
-// Or use $this in controller
-$body = $this-&gt;view-&gt;render('email.html', ['name' =&gt; 'KhanhIceTea']);
-</code></pre>
-
-<h2 id="eloquent">Eloquent</h2>
-
-<p>Eloquent is a very good query builder out there. Checkout its documentation <a href="https://laravel.com/docs/master/eloquent">here</a></p>
-
-<h3 id="install-1">Install</h3>
-
-<p>Require composer package</p>
-
-<pre><code>$ composer require illuminate/events
-$ composer require illuminate/database
-</code></pre>
-
-<p>Then, uncomment the line register Capsule Service Provider in <code>bootstrap/app.php</code></p>
-
-<h3 id="usage-1">Usage</h3>
-
-<p>All application models <strong>MUST</strong> extend <code>App\Model\Base</code> to use the Eloquent. Because we init <code>capsule</code> service when composer autoloads the <code>Base</code> model.</p>
-
-<p><em>File app/Model/User.php</em></p>
-
-<pre><code class="language-php">&lt;?php
-namespace App\Model;
-
-class User extends Base
-{
-    protected $table = 'user';
-}
-</code></pre>
-
-<p><em>Use models</em></p>
-
-<pre><code class="language-php">$user = App\Model\User::find(1);
-</code></pre>
-
-<p><strong>If you want to use <a href="https://laravel.com/docs/master/database">DB</a> facade like Laravel, we already had it in App\DB</strong></p>
-
-<pre><code class="language-php">use App\DB;
-
-/* count and group user by status */
-$users = DB::table('users')
-    -&gt;select(DB::raw('count(*) as user_count, status'))
-    -&gt;where('status', '&lt;&gt;', 1)
-    -&gt;groupBy('status')
-    -&gt;get();
-</code></pre>
-
-<h2 id="console">Console</h2>
-
-<p>SlimFit used <code>symfony/console</code> to manage console application</p>
-
-<h3 id="install-2">Install</h3>
-
-<p>Require composer package</p>
-
-<pre><code>$ composer require symfony/console
-</code></pre>
-
-<p>Then, uncomment the line register Console Service Provider in <code>bootstrap/app.php</code></p>
-
-<h3 id="usage-2">Usage</h3>
-
-<p>All console commands <strong>SHOULD</strong> have namespace <code>app\Console\Command</code></p>
-
-<p><em>File app/Console/Command/Hello.php</em></p>
-
-<pre><code class="language-php">&lt;?php
-namespace App\Console\Command;
-
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-
-class Hello extends Command
-{
-    protected function configure()
-    {
-        $this
-            -&gt;setName('hello')
-            -&gt;setDescription('Hello world');
-    }
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $output-&gt;writeln('Hello World !');
-    }
-}
-</code></pre>
-
-<p><em>Register command to console application by put it to config/console.php</em></p>
-
-<pre><code>    'console.commands' =&gt; [
-        App\Console\Command\QuoteOfDay::class,
-        App\Console\Command\Hello::class,
-    ],
-</code></pre>
-
-<h3 id="running-command">Running command</h3>
-
-<pre><code class="language-bash">$ php console hello
-</code></pre>
-
+			<hr>
+			
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2016 Released under the MIT license &ndash;
+				&copy; 2017 Released under the MIT license &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
-
-			<footer class="footer">
-				
-
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  
-      <a href="https://slimfit.khanhicetea.com/routing/" title="Routing - Controller">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Routing - Controller
-            </div>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-
-  <div class="next">
-  
-      <a href="https://slimfit.khanhicetea.com/addons/" title="Addons">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Addons
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-</nav>
-
-
-
-
-
-			</footer>
 		</div>
 	</article>
 
@@ -559,8 +387,8 @@ class Hello extends Command
 
     <script>
     
-      var base_url = 'https:\/\/slimfit.khanhicetea.com\/';
-      var repo_id  = 'khanhicetea\/slimfit';
+      var base_url = '';
+      var repo_id  = '';
     
     </script>
 

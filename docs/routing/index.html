@@ -9,8 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Routing - Controller - SlimFit Documenation</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <title>Routings - SlimFit Documenation</title>
+    <meta name="generator" content="Hugo 0.18.1" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
@@ -69,14 +69,12 @@
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
     
+    <link href="https://slimfit.khanhicetea.com/routing/index.xml" rel="alternate" type="application/rss+xml" title="SlimFit Documenation" />
+    <link href="https://slimfit.khanhicetea.com/routing/index.xml" rel="feed" type="application/rss+xml" title="SlimFit Documenation" />
+    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
-
-
-
-	
-	
 
 
 <div class="backdrop">
@@ -97,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Routing - Controller
+        Routing
       </div>
     </div>
 
@@ -143,9 +141,6 @@
       
       <div class="name">
         <strong>SlimFit Documenation <span class="version">1.1.0</span></strong>
-        
-          <br>
-          khanhicetea/slimfit
         
       </div>
     </div>
@@ -350,131 +345,29 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Routing - Controller </h1>
+			<h1>Pages in Routing</h1>
 
 			
+			<a href="https://slimfit.khanhicetea.com/routing/" title="Routing - Controller">
+				<h2>Routing - Controller</h2>
+			</a>
 
-<h2 id="routing">Routing</h2>
+			<br>
+			Routing In SlimFit, you can define routing in app/Http/routes.php file in the same way as Slim 3.
+&lt;?php $app = app(); // Use basic closure, setName is method to name to route, it is optional $app-&gt;get(&lsquo;/&rsquo;, function ($req, $res) { return $res-&gt;withJson([&lsquo;hello&rsquo; =&gt; &lsquo;world&rsquo;]); })-&gt;setName(&lsquo;home&rsquo;); // Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name $app-&gt;get(&lsquo;/&rsquo;, &lsquo;Home:hello&rsquo;)-&gt;setName(&lsquo;home&rsquo;); // Add a middleware, mw_token is middleware named &lsquo;token&rsquo; which defined in app/Http/Kernel.
 
-<p>In SlimFit, you can define routing in <code>app/Http/routes.php</code> file in the same way as Slim 3.</p>
-
-<pre><code>&lt;?php
-
-$app = app();
-
-// Use basic closure, setName is method to name to route, it is optional
-$app-&gt;get('/', function ($req, $res) {
-    return $res-&gt;withJson(['hello' =&gt; 'world']);
-})-&gt;setName('home');
-
-// Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name
-$app-&gt;get('/', 'Home:hello')-&gt;setName('home');
-
-// Add a middleware, mw_token is middleware named 'token' which defined in app/Http/Kernel.php
-$app-&gt;get('/me', 'User:aboutMe')-&gt;setName('about_me')-&gt;add('mw_token');
-
-// Group route
-$app-&gt;group('/api/me', function() {
-    $this-&gt;get('/info', 'User:info')-&gt;setName('api_me_info');
-    $this-&gt;put('/info', 'User:updateInfo')-&gt;setName('api_me_update_info');
-})-&gt;add('mw_token');
-</code></pre>
-
-<h2 id="controller">Controller</h2>
-
-<p>You <strong>SHOULD</strong> define application controller in namespace <code>App\Htpp\Controller</code> and <strong>extends</strong> <code>App\Http\Controller\Base</code></p>
-
-<h3 id="passing-request-response-directly-to-method">Passing request, response directly to method</h3>
-
-<pre><code>&lt;?php
-namespace App\Http\Controller;
-
-class User extends Base
-{
-    // use public scope if you want it receive request, reponse directly
-    public function info($req, $res, $args) {
-        return $res-&gt;withJson(['data' =&gt; $args]);
-    }
-}
-</code></pre>
-
-<h3 id="proxy-request-and-respone-through-controller">Proxy request and respone through Controller</h3>
-
-<pre><code>&lt;?php
-namespace App\Http\Controller;
-
-class User extends Base
-{
-    // use protected scope if you want it receive request, reponse directly
-    protected function info($args) {
-        // $this-&gt;req will be request instance
-        // $this-&gt;res will be response instance
-        return $this-&gt;res-&gt;withJson(['data' =&gt; $args]);
-    }
-}
-</code></pre>
-
+			<hr>
+			
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2016 Released under the MIT license &ndash;
+				&copy; 2017 Released under the MIT license &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
-
-			<footer class="footer">
-				
-
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  
-      <a href="https://slimfit.khanhicetea.com/concepts/" title="Concepts">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Concepts
-            </div>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-
-  <div class="next">
-  
-      <a href="https://slimfit.khanhicetea.com/service-provider/" title="Service Providers">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Service Providers
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-</nav>
-
-
-
-
-
-			</footer>
 		</div>
 	</article>
 
@@ -490,8 +383,8 @@ class User extends Base
 
     <script>
     
-      var base_url = 'https:\/\/slimfit.khanhicetea.com\/';
-      var repo_id  = 'khanhicetea\/slimfit';
+      var base_url = '';
+      var repo_id  = '';
     
     </script>
 

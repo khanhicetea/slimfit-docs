@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Routings on SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/routing/</link>
+    <link>https://slimfit.khanhicetea.com/routing/index.xml</link>
     <description>Recent content in Routings on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
     <lastBuildDate>Sun, 21 Aug 2016 01:56:50 +0100</lastBuildDate>
     <atom:link href="https://slimfit.khanhicetea.com/routing/index.xml" rel="self" type="application/rss+xml" />
     

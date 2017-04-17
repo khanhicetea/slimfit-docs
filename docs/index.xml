@@ -2,59 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/</link>
+    <link>https://slimfit.khanhicetea.com/index.xml</link>
     <description>Recent content on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Aug 2016 21:07:13 +0100</lastBuildDate>
+    <copyright>Released under the MIT license</copyright>
+    <lastBuildDate>Sat, 20 Aug 2016 00:11:02 +0100</lastBuildDate>
     <atom:link href="https://slimfit.khanhicetea.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>SlimFit - Good Enough RESTful API Framework</title>
-      <link>https://slimfit.khanhicetea.com/</link>
-      <pubDate>Sat, 20 Aug 2016 21:07:13 +0100</pubDate>
-      
-      <guid>https://slimfit.khanhicetea.com/</guid>
-      <description>
-
-&lt;h2 id=&#34;beautiful-api-design&#34;&gt;Beautiful API design&lt;/h2&gt;
-
-&lt;p&gt;SlimFit is a framework for only purpose - RESTful API webservice, it&amp;rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.&lt;/p&gt;
-
-&lt;p&gt;SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.&lt;/p&gt;
-
-&lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;Rasmus Lerdorf&lt;/p&gt;
-&lt;p&gt;All general purpose PHP frameworks suck!&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg&#34; alt=&#34;meme&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
-
-&lt;p&gt;Install with &lt;code&gt;composer&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;composer create-project khanhicetea/slimfit your-folder-project
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Beautiful, readable and very user-friendly design based on PSR-7&lt;/li&gt;
-&lt;li&gt;Well-tested and optimized&lt;/li&gt;
-&lt;li&gt;Extra configuration, easy to customize the stack&lt;/li&gt;
-&lt;li&gt;Have I said &amp;ldquo;GOOD ENOUGH&amp;rdquo; ? Sure, it&amp;rsquo;s good enough for a RESTful API webservice&lt;/li&gt;
-&lt;li&gt;Compatible with React PHP to boosting the application speed to new level via &lt;a href=&#34;https://github.com/php-pm/php-pm&#34;&gt;PHP PPM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;https://slimfit.khanhicetea.com/getting-started/&#34;&gt;getting started guide&lt;/a&gt; for instructions how to get
-it up and running.&lt;/p&gt;
-
-&lt;h2 id=&#34;acknowledgements&#34;&gt;Acknowledgements&lt;/h2&gt;
-
-&lt;p&gt;Last but not least a big thank you to &lt;a href=&#34;https://github.com/slimphp/Slim#credits&#34;&gt;Slim contributors&lt;/a&gt;. They created the good base framework to build this stack.&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Getting started</title>
@@ -756,6 +710,53 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SlimFit - Good Enough RESTful API Framework</title>
+      <link>https://slimfit.khanhicetea.com/</link>
+      <pubDate>Sat, 20 Aug 2016 21:07:13 +0100</pubDate>
+      
+      <guid>https://slimfit.khanhicetea.com/</guid>
+      <description>
+
+&lt;h2 id=&#34;beautiful-api-design&#34;&gt;Beautiful API design&lt;/h2&gt;
+
+&lt;p&gt;SlimFit is a framework for only purpose - RESTful API webservice, it&amp;rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.&lt;/p&gt;
+
+&lt;p&gt;SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.&lt;/p&gt;
+
+&lt;div class=&#34;admonition note&#34;&gt;
+&lt;p class=&#34;admonition-title&#34;&gt;Rasmus Lerdorf&lt;/p&gt;
+&lt;p&gt;All general purpose PHP frameworks suck!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg&#34; alt=&#34;meme&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
+
+&lt;p&gt;Install with &lt;code&gt;composer&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;composer create-project khanhicetea/slimfit your-folder-project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Beautiful, readable and very user-friendly design based on PSR-7&lt;/li&gt;
+&lt;li&gt;Well-tested and optimized&lt;/li&gt;
+&lt;li&gt;Extra configuration, easy to customize the stack&lt;/li&gt;
+&lt;li&gt;Have I said &amp;ldquo;GOOD ENOUGH&amp;rdquo; ? Sure, it&amp;rsquo;s good enough for a RESTful API webservice&lt;/li&gt;
+&lt;li&gt;Compatible with React PHP to boosting the application speed to new level via &lt;a href=&#34;https://github.com/php-pm/php-pm&#34;&gt;PHP PPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See the &lt;a href=&#34;https://slimfit.khanhicetea.com/getting-started/&#34;&gt;getting started guide&lt;/a&gt; for instructions how to get
+it up and running.&lt;/p&gt;
+
+&lt;h2 id=&#34;acknowledgements&#34;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;Last but not least a big thank you to &lt;a href=&#34;https://github.com/slimphp/Slim#credits&#34;&gt;Slim contributors&lt;/a&gt;. They created the good base framework to build this stack.&lt;/p&gt;
 </description>
     </item>
     

@@ -9,8 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Getting started - SlimFit Documenation</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <title>Getting-starteds - SlimFit Documenation</title>
+    <meta name="generator" content="Hugo 0.18.1" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
@@ -69,14 +69,12 @@
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
     
+    <link href="https://slimfit.khanhicetea.com/getting-started/index.xml" rel="alternate" type="application/rss+xml" title="SlimFit Documenation" />
+    <link href="https://slimfit.khanhicetea.com/getting-started/index.xml" rel="feed" type="application/rss+xml" title="SlimFit Documenation" />
+    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
-
-
-
-	
-	
 
 
 <div class="backdrop">
@@ -97,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Getting started
+        Getting-started
       </div>
     </div>
 
@@ -143,9 +141,6 @@
       
       <div class="name">
         <strong>SlimFit Documenation <span class="version">1.1.0</span></strong>
-        
-          <br>
-          khanhicetea/slimfit
         
       </div>
     </div>
@@ -350,153 +345,30 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Getting started </h1>
+			<h1>Pages in Getting-started</h1>
 
 			
+			<a href="https://slimfit.khanhicetea.com/getting-started/" title="Getting started">
+				<h2>Getting started</h2>
+			</a>
 
-<h2 id="installation">Installation</h2>
+			<br>
+			Installation Installing SlimFit Let&rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer
+composer create-project khanhicetea/slimfit your-folder-project  Setup webserver Next, assuming you have a popular webserver like Apache2 or Nginx
+ Apache 2 : just point the document root of virtualhost to public folder and enable rewrite mod if you want to use rewrite url feature. Nginx : use this sample site config, (replace the fastcgi_pass if you use UNIX sock)  server { listen 80; server_name slimfit.
 
-<h3 id="installing-slimfit">Installing SlimFit</h3>
-
-<p>Let&rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer</p>
-
-<pre><code class="language-sh">composer create-project khanhicetea/slimfit your-folder-project
-</code></pre>
-
-<h3 id="setup-webserver">Setup webserver</h3>
-
-<p>Next, assuming you have a popular webserver like Apache2 or Nginx</p>
-
-<ul>
-<li>Apache 2 : just point the document root of virtualhost to <strong>public</strong> folder and enable <strong>rewrite</strong> mod if you want to use rewrite url feature.</li>
-<li>Nginx : use this sample site config, (replace the <strong>fastcgi_pass</strong> if you use UNIX sock)</li>
-</ul>
-
-<pre><code class="language-nginx">server {
-    listen 80;
-    server_name slimfit.dev; 
-
-    root /www/slimfit/public;
-    index index.php;
-
-    location / {
-        try_files $uri $uri/ /index.php$is_args$args;
-    }
-
-    location ~ \.php$ {
-        fastcgi_pass localhost:9000;
-        fastcgi_split_path_info ^(.+\.php)(/.*)$;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-}
-</code></pre>
-
-<h2 id="config-environment">Config environment</h2>
-
-<p>Copy at the <strong>.env.example</strong> to <strong>.env</strong> in the root directory of your website. Overwrite the existing config file if necessary.</p>
-
-<p>Let me explain detail of environments</p>
-
-<pre><code class="language-env"># Your app name
-APP_NAME=SlimFit
-# Your app secret key, use for encrypt data or JWT token
-APP_KEY=hard_to_guess
-
-# Enable debug error mode
-DEBUG=true
-
-# Default timezone
-TIMEZONE=&quot;UTC&quot;
-
-# Database config
-DB_DRIVER=mysql
-DB_HOST=localhost
-DB_DATABASE=slimfit
-DB_USERNAME=root
-DB_PASSWORD=secret
-DB_CHARSET=utf8
-DB_COLLATION=utf8_unicode_ci
-DB_PREFIX=
-DB_LOG=true
-</code></pre>
-
-<p>Now you can go to home page of application to see the <strong>hello world</strong> message :)</p>
-
-<h2 id="project-folder-struture">Project folder struture</h2>
-
-<ul>
-<li><strong>app</strong> : Application classes (included Console Commands, Http Stack, Database Models and Service Providers)</li>
-<li><strong>bootstrap</strong> : bootstrap files (first run before running the app)</li>
-<li><strong>config</strong> : configuration files (app, database and console, etc &hellip;)</li>
-<li><strong>db</strong> : database files (migration and seeder files)</li>
-<li><strong>public</strong> : your public folder - document root (index.php, assets and public files)</li>
-<li><strong>resources</strong> : resources files (templates or language files)</li>
-<li><strong>storage</strong> : application storage (cache, log)</li>
-<li><strong>tests</strong> : PHPUnit testcase files</li>
-</ul>
-
+			<hr>
+			
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2016 Released under the MIT license &ndash;
+				&copy; 2017 Released under the MIT license &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
-
-			<footer class="footer">
-				
-
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  
-      <a href="https://slimfit.khanhicetea.com/" title="SlimFit - Good Enough RESTful API Framework">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              SlimFit - Good Enough RESTful API Framework
-            </div>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-
-  <div class="next">
-  
-      <a href="https://slimfit.khanhicetea.com/http-kernel/" title="HTTP Kernel">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              HTTP Kernel
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-</nav>
-
-
-
-
-
-			</footer>
 		</div>
 	</article>
 
@@ -512,8 +384,8 @@ DB_LOG=true
 
     <script>
     
-      var base_url = 'https:\/\/slimfit.khanhicetea.com\/';
-      var repo_id  = 'khanhicetea\/slimfit';
+      var base_url = '';
+      var repo_id  = '';
     
     </script>
 

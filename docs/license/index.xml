@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Licenses on SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/license/</link>
+    <link>https://slimfit.khanhicetea.com/license/index.xml</link>
     <description>Recent content in Licenses on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
     <lastBuildDate>Sat, 20 Aug 2016 20:10:46 +0100</lastBuildDate>
     <atom:link href="https://slimfit.khanhicetea.com/license/index.xml" rel="self" type="application/rss+xml" />
     
