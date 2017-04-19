@@ -2,44 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Licenses on SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/license/index.xml</link>
+    <link>https://slimfit.khanhicetea.com/license/</link>
     <description>Recent content in Licenses on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license</copyright>
     <lastBuildDate>Sat, 20 Aug 2016 20:10:46 +0100</lastBuildDate>
-    <atom:link href="https://slimfit.khanhicetea.com/license/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://slimfit.khanhicetea.com/license/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>License</title>
-      <link>https://slimfit.khanhicetea.com/license/</link>
+      <link>https://slimfit.khanhicetea.com/license/index/</link>
       <pubDate>Sat, 20 Aug 2016 20:10:46 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/license/</guid>
-      <description>
-
-&lt;h2 id=&#34;mit-license&#34;&gt;MIT LICENSE&lt;/h2&gt;
-
-&lt;p&gt;Copyright &amp;copy; 2016 Khanh Nguyen &lt;a href=&#34;mailto:khanhicetea@gmail.com&#34;&gt;khanhicetea@gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:&lt;/p&gt;
-
-&lt;p&gt;The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.&lt;/p&gt;
-
-&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.&lt;/p&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/license/index/</guid>
+      <description>MIT LICENSE Copyright &amp;copy; 2016 Khanh Nguyen khanhicetea@gmail.com
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
     </item>
     
   </channel>

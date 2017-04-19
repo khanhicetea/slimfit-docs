@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>SlimFit Documenation</title>
+    <title>Concepts - SlimFit Documenation</title>
     <meta name="generator" content="Hugo 0.20.2" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
     
-    <link rel="canonical" href="https://slimfit.khanhicetea.com/">
+    <link rel="canonical" href="https://slimfit.khanhicetea.com/concepts/index/">
     
     <meta name="author" content="khanhicetea">
     
 
-    <meta property="og:url" content="https://slimfit.khanhicetea.com/">
+    <meta property="og:url" content="https://slimfit.khanhicetea.com/concepts/index/">
     <meta property="og:title" content="SlimFit Documenation">
     <meta property="og:image" content="https://slimfit.khanhicetea.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="SlimFit Documenation">
@@ -69,9 +69,6 @@
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
     
-    <link href="https://slimfit.khanhicetea.com/index.xml" rel="alternate" type="application/rss+xml" title="SlimFit Documenation" />
-    <link href="https://slimfit.khanhicetea.com/index.xml" rel="feed" type="application/rss+xml" title="SlimFit Documenation" />
-    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
@@ -100,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        SlimFit Documenation
+        Concepts
       </div>
     </div>
 
@@ -313,14 +310,11 @@
 
 
 
-<a class="current" title="SlimFit" href="https://slimfit.khanhicetea.com/">
+<a  title="SlimFit" href="https://slimfit.khanhicetea.com/">
 	
 	SlimFit
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -363,49 +357,70 @@
 
 	<article class="article">
 		<div class="wrapper">
+			<h1>Concepts </h1>
+
 			
-				<h1>SlimFit - Good Enough RESTful API Framework </h1>
 
-				
+<h2 id="slimfit-application">SlimFit Application</h2>
 
-<h2 id="beautiful-api-design">Beautiful API design</h2>
+<p>SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.</p>
 
-<p>SlimFit is a framework for only purpose - RESTful API webservice, it&rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.</p>
+<h3 id="get-application-instance">Get application instance</h3>
 
-<p>SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.</p>
-
-<div class="admonition note">
-<p class="admonition-title">Rasmus Lerdorf</p>
-<p>All general purpose PHP frameworks suck!</p>
-</div>
-
-<p><img src="https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg" alt="meme" /></p>
-
-<h2 id="quick-start">Quick start</h2>
-
-<p>Install with <code>composer</code>:</p>
-
-<pre><code class="language-sh">composer create-project khanhicetea/slimfit your-folder-project
+<pre><code class="language-php">$app = \App\SlimFit::getInstance()
+// or use helper function
+$app = app();
 </code></pre>
 
-<h2 id="features">Features</h2>
+<h2 id="dependency-container">Dependency Container</h2>
 
-<ul>
-<li>Beautiful, readable and very user-friendly design based on PSR-7</li>
-<li>Well-tested and optimized</li>
-<li>Extra configuration, easy to customize the stack</li>
-<li>Have I said &ldquo;GOOD ENOUGH&rdquo; ? Sure, it&rsquo;s good enough for a RESTful API webservice</li>
-<li>Compatible with React PHP to boosting the application speed to new level via <a href="https://github.com/php-pm/php-pm">PHP PPM</a></li>
-</ul>
+<p>SlimFit uses <a href="http://pimple.sensiolabs.org/">Pimple</a> as Dependency Container because it&rsquo;s very lightweight and flexible. You can read its documentation in Homepage.</p>
 
-<p>See the <a href="https://slimfit.khanhicetea.com/getting-started/index/">getting started guide</a> for instructions how to get
-it up and running.</p>
+<h3 id="get-service-factory-by-key">Get service, factory by key</h3>
 
-<h2 id="acknowledgements">Acknowledgements</h2>
+<pre><code class="language-php">$container = app()-&gt;getContainer();
+$value = $container-&gt;get($key);
+$value2 = $container[$key2]
+// or use helper function
+$value3 = app($key3);
+</code></pre>
 
-<p>Last but not least a big thank you to <a href="https://github.com/slimphp/Slim#credits">Slim contributors</a>. They created the good base framework to build this stack.</p>
+<h3 id="get-application-config">Get application config</h3>
 
-			
+<p>SlimFit application autoload all PHP files in <code>config</code> folder to retrieve array of config then put in DI Container via a namespace key <code>config.[filename_without_extension]</code>.</p>
+
+<p><em>File : config/console.php</em></p>
+
+<pre><code class="language-php">return [
+    'console.name' =&gt; 'SlimFit console',
+] 
+</code></pre>
+
+<p><em>Getting that config</em></p>
+
+<pre><code class="language-php">$console_name = $container['config.console']['console.name'];
+// or short way
+$console_name = app('config.console')['console.name'];
+</code></pre>
+
+<h2 id="service-provider">Service provider</h2>
+
+<p>Service provider <strong>MUST</strong> implements <code>\Pimple\ServiceProviderInterface</code>
+We have some common service providers in <code>app\ServiceProvider</code> : Monolog, Console, Capsule and Twig</p>
+
+<p>You <strong>SHOULD</strong> register service provider in bootstraping of Application at <code>bootstrap/app.php</code>, you can see we had 2 core service providers : Monolog and HttpKernel</p>
+
+<pre><code class="language-php">$service_providers = [
+    App\ServiceProvider\Monolog::class =&gt; [], 
+    App\ServiceProvider\HttpKernel::class =&gt; [], 
+
+    // Your service providers below
+    App\ServiceProvider\Example::class =&gt; $config_replace_in_container, 
+];
+</code></pre>
+
+<p>which <code>$config_replace_in_container</code> is an array of key-value config will be replaced in DI Container.</p>
+
 
 			<aside class="copyright" role="note">
 				
@@ -420,23 +435,37 @@ it up and running.</p>
 			<footer class="footer">
 				
 
-
-
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
+  
+      <a href="https://slimfit.khanhicetea.com/http-kernel/index/" title="HTTP Kernel">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              HTTP Kernel
+            </div>
+          </div>
+        </div>
+      </a>
+  
   </div>
 
-  
-  
   <div class="next">
-      <a href="https://slimfit.khanhicetea.com/tags/" title="Tags">
+  
+      <a href="https://slimfit.khanhicetea.com/routing/index/" title="Routing - Controller">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Tags
+              Routing - Controller
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
@@ -444,8 +473,11 @@ it up and running.</p>
           </div>
         </div>
       </a>
+  
   </div>
 </nav>
+
+
 
 
 

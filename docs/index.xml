@@ -2,762 +2,106 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/index.xml</link>
+    <link>https://slimfit.khanhicetea.com/</link>
     <description>Recent content on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license</copyright>
     <lastBuildDate>Sat, 20 Aug 2016 00:11:02 +0100</lastBuildDate>
-    <atom:link href="https://slimfit.khanhicetea.com/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://slimfit.khanhicetea.com/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Getting started</title>
-      <link>https://slimfit.khanhicetea.com/getting-started/</link>
+      <link>https://slimfit.khanhicetea.com/getting-started/index/</link>
       <pubDate>Sat, 20 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/getting-started/</guid>
-      <description>
-
-&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-
-&lt;h3 id=&#34;installing-slimfit&#34;&gt;Installing SlimFit&lt;/h3&gt;
-
-&lt;p&gt;Let&amp;rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;composer create-project khanhicetea/slimfit your-folder-project
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;setup-webserver&#34;&gt;Setup webserver&lt;/h3&gt;
-
-&lt;p&gt;Next, assuming you have a popular webserver like Apache2 or Nginx&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Apache 2 : just point the document root of virtualhost to &lt;strong&gt;public&lt;/strong&gt; folder and enable &lt;strong&gt;rewrite&lt;/strong&gt; mod if you want to use rewrite url feature.&lt;/li&gt;
-&lt;li&gt;Nginx : use this sample site config, (replace the &lt;strong&gt;fastcgi_pass&lt;/strong&gt; if you use UNIX sock)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
-    listen 80;
-    server_name slimfit.dev; 
-
-    root /www/slimfit/public;
-    index index.php;
-
-    location / {
-        try_files $uri $uri/ /index.php$is_args$args;
-    }
-
-    location ~ \.php$ {
-        fastcgi_pass localhost:9000;
-        fastcgi_split_path_info ^(.+\.php)(/.*)$;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;config-environment&#34;&gt;Config environment&lt;/h2&gt;
-
-&lt;p&gt;Copy at the &lt;strong&gt;.env.example&lt;/strong&gt; to &lt;strong&gt;.env&lt;/strong&gt; in the root directory of your website. Overwrite the existing config file if necessary.&lt;/p&gt;
-
-&lt;p&gt;Let me explain detail of environments&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-env&#34;&gt;# Your app name
-APP_NAME=SlimFit
-# Your app secret key, use for encrypt data or JWT token
-APP_KEY=hard_to_guess
-
-# Enable debug error mode
-DEBUG=true
-
-# Default timezone
-TIMEZONE=&amp;quot;UTC&amp;quot;
-
-# Database config
-DB_DRIVER=mysql
-DB_HOST=localhost
-DB_DATABASE=slimfit
-DB_USERNAME=root
-DB_PASSWORD=secret
-DB_CHARSET=utf8
-DB_COLLATION=utf8_unicode_ci
-DB_PREFIX=
-DB_LOG=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now you can go to home page of application to see the &lt;strong&gt;hello world&lt;/strong&gt; message :)&lt;/p&gt;
-
-&lt;h2 id=&#34;project-folder-struture&#34;&gt;Project folder struture&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;app&lt;/strong&gt; : Application classes (included Console Commands, Http Stack, Database Models and Service Providers)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bootstrap&lt;/strong&gt; : bootstrap files (first run before running the app)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;config&lt;/strong&gt; : configuration files (app, database and console, etc &amp;hellip;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;db&lt;/strong&gt; : database files (migration and seeder files)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;public&lt;/strong&gt; : your public folder - document root (index.php, assets and public files)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;resources&lt;/strong&gt; : resources files (templates or language files)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;storage&lt;/strong&gt; : application storage (cache, log)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;tests&lt;/strong&gt; : PHPUnit testcase files&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/getting-started/index/</guid>
+      <description>Installation Installing SlimFit Let&amp;rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer
+composer create-project khanhicetea/slimfit your-folder-project  Setup webserver Next, assuming you have a popular webserver like Apache2 or Nginx
+ Apache 2 : just point the document root of virtualhost to public folder and enable rewrite mod if you want to use rewrite url feature. Nginx : use this sample site config, (replace the fastcgi_pass if you use UNIX sock)  server { listen 80; server_name slimfit.</description>
     </item>
     
     <item>
       <title>HTTP Kernel</title>
-      <link>https://slimfit.khanhicetea.com/http-kernel/</link>
+      <link>https://slimfit.khanhicetea.com/http-kernel/index/</link>
       <pubDate>Sun, 21 Aug 2016 00:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/http-kernel/</guid>
-      <description>
-
-&lt;h2 id=&#34;http-stack&#34;&gt;HTTP Stack&lt;/h2&gt;
-
-&lt;p&gt;In SlimFit, we have a HTTP Kernel handles request and return a response. That is how a webservice works.&lt;/p&gt;
-
-&lt;p&gt;HTTP Kernel is a middlewares stack, where each middleware receive a request, process the request or pass it to next middleware, and finally return a response.&lt;/p&gt;
-
-&lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;Note&lt;/p&gt;
-&lt;p&gt;Below part of document has been copied from &lt;a href=&#34;http://www.slimframework.com/docs/concepts/middleware.html&#34;&gt;Slim Framework docs&lt;/a&gt;, and I changed some place to fit with SlimFit.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;what-is-middleware&#34;&gt;What is middleware?&lt;/h2&gt;
-
-&lt;p&gt;Technically speaking, a middleware is a &lt;em&gt;callable&lt;/em&gt; that accepts three arguments:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;\Psr\Http\Message\ServerRequestInterface&lt;/code&gt; - The PSR7 request object&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\Psr\Http\Message\ResponseInterface&lt;/code&gt; - The PSR7 response object&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;callable&lt;/code&gt; - The next middleware callable&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;It can do whatever is appropriate with these objects. The only hard requirement
-is that a middleware &lt;strong&gt;MUST&lt;/strong&gt; return an instance of &lt;code&gt;\Psr\Http\Message\ResponseInterface&lt;/code&gt;.
-Each middleware &lt;strong&gt;SHOULD&lt;/strong&gt; invoke the next middleware and pass it Request and
-Response objects as arguments.&lt;/p&gt;
-
-&lt;h2 id=&#34;how-does-middleware-work&#34;&gt;How does middleware work?&lt;/h2&gt;
-
-&lt;p&gt;Different frameworks use middleware differently. Slim adds middleware as concentric
-layers surrounding your core application. Each new middleware layer surrounds
-any existing middleware layers. The concentric structure expands outwardly as
-additional middleware layers are added.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The last middleware layer added is the first to be executed.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;When you run the Slim application, the Request and Response objects traverse the
-middleware structure from the outside in. They first enter the outer-most middleware,
-then the next outer-most middleware, (and so on), until they ultimately arrive
-at the Slim application itself. After the Slim application dispatches the
-appropriate route, the resultant Response object exits the Slim application and
-traverses the middleware structure from the inside out. Ultimately, a final
-Response object exits the outer-most middleware, is serialized into a raw HTTP
-response, and is returned to the HTTP client. Here&amp;rsquo;s a diagram that illustrates
-the middleware process flow:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://slimfit.khanhicetea.com/images/middleware_stack.png&#34; alt=&#34;Middleware Stack&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;how-do-i-write-middleware&#34;&gt;How do I write middleware?&lt;/h2&gt;
-
-&lt;p&gt;Middleware is a callable that accepts three arguments: a Request object, a Response object, and the next middleware. Each middleware &lt;strong&gt;MUST&lt;/strong&gt; return an instance of &lt;code&gt;\Psr\Http\Message\ResponseInterface&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;closure-middleware-example&#34;&gt;Closure middleware example.&lt;/h3&gt;
-
-&lt;p&gt;This example middleware is a Closure.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-/**
- * Example middleware closure
- *
- * @param  \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
- * @param  \Psr\Http\Message\ResponseInterface      $response PSR7 response
- * @param  callable                                 $next     Next middleware
- *
- * @return \Psr\Http\Message\ResponseInterface
- */
-function ($request, $response, $next) {
-    $response-&amp;gt;getBody()-&amp;gt;write(&#39;BEFORE&#39;);
-    $response = $next($request, $response);
-    $response-&amp;gt;getBody()-&amp;gt;write(&#39;AFTER&#39;);
-
-    return $response;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;invokable-class-middleware-example&#34;&gt;Invokable class middleware example&lt;/h3&gt;
-
-&lt;p&gt;This example middleware is an invokable class that implements the magic &lt;code&gt;__invoke()&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-class ExampleMiddleware
-{
-    /**
-     * Example middleware invokable class
-     *
-     * @param  \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
-     * @param  \Psr\Http\Message\ResponseInterface      $response PSR7 response
-     * @param  callable                                 $next     Next middleware
-     *
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function __invoke($request, $response, $next)
-    {
-        $response-&amp;gt;getBody()-&amp;gt;write(&#39;BEFORE&#39;);
-        $response = $next($request, $response);
-        $response-&amp;gt;getBody()-&amp;gt;write(&#39;AFTER&#39;);
-
-        return $response;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To use this class as a middleware, you can use &lt;code&gt;-&amp;gt;add( new ExampleMiddleware() );&lt;/code&gt; function chain after the &lt;code&gt;$app&lt;/code&gt;, &lt;code&gt;Route&lt;/code&gt;,  or &lt;code&gt;group()&lt;/code&gt;, which in the code below, any one of these, could represent $subject.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$subject-&amp;gt;add( new ExampleMiddleware() );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;how-do-i-add-middleware&#34;&gt;How do I add middleware?&lt;/h2&gt;
-
-&lt;p&gt;You may add middleware to a Slim application, to an individual Slim application route or to a route group. All scenarios accept the same middleware and implement the same middleware interface.&lt;/p&gt;
-
-&lt;h3 id=&#34;application-middleware&#34;&gt;Application middleware&lt;/h3&gt;
-
-&lt;p&gt;Application middleware is invoked for every &lt;em&gt;incoming&lt;/em&gt; HTTP request. Add application middleware with the Slim application instance&amp;rsquo;s &lt;code&gt;add()&lt;/code&gt; method. We recommend use class as a middleware, you can define new one in &lt;code&gt;app/Http/Middleware&lt;/code&gt; folder with namespace &lt;code&gt;App\Http\Middleware&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;File : app/Http/Middleware/Example.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-namespace App\Http\Middleware;
-
-class Example
-{
-    public function __invoke($request, $response, $next)
-    {
-        $response-&amp;gt;getBody()-&amp;gt;write(&#39;SLIM&#39;);
-        $response = $next($request, $response);
-        $response-&amp;gt;getBody()-&amp;gt;write(&#39;FIT&#39;);
-
-        return $response;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then add it in &lt;code&gt;defaultAppMiddlewares&lt;/code&gt; method of &lt;code&gt;app/Http/Kernel.php&lt;/code&gt; class&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    public function defaultAppMiddlewares()
-    {
-        /* Other middlewares */
-        $this-&amp;gt;appendAppMiddleware(new \App\Http\Middleware\Example());
-        /* Other middlewares */
-    }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This would output this HTTP response body:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SLIM [controller response content] FIT
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;route-middleware&#34;&gt;Route middleware&lt;/h3&gt;
-
-&lt;p&gt;Route middleware is invoked &lt;em&gt;only if&lt;/em&gt; its route matches the current HTTP request method and URI. Route middleware is specified immediately after you invoke any of the Slim application&amp;rsquo;s routing methods (e.g., &lt;code&gt;get()&lt;/code&gt; or &lt;code&gt;post()&lt;/code&gt;). Each routing method returns an instance of &lt;code&gt;\Slim\Route&lt;/code&gt;, and this class provides the same middleware interface as the Slim application instance. Add middleware to a Route with the Route instance&amp;rsquo;s &lt;code&gt;add()&lt;/code&gt; method. This example adds the Closure middleware example above:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-$mw = function ($request, $response, $next) {
-    $token = $request-&amp;gt;getHeaderLine(&#39;Authorization&#39;);
-    if ($token &amp;amp;&amp;amp; verify_token($token)) {
-        return $next($request, $response);
-    }
-    return $response-&amp;gt;withStatus(401);
-};
-
-$app-&amp;gt;get(&#39;/secret&#39;, function ($request, $response, $args) {
-	$response-&amp;gt;getBody()-&amp;gt;write(&#39; This is secret zone &#39;);
-	return $response;
-})-&amp;gt;add($mw);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This would add a token authentication layer to your secret route.&lt;/p&gt;
-
-&lt;h3 id=&#34;group-middleware&#34;&gt;Group Middleware&lt;/h3&gt;
-
-&lt;p&gt;In addition to the overall application, and standard routes being able to accept middleware, the &lt;code&gt;group()&lt;/code&gt; multi-route definition functionality, also allows individual routes internally. Route group middleware is invoked &lt;em&gt;only if&lt;/em&gt; its route matches one of the defined HTTP request methods and URIs from the group. To add middleware within the callback, and entire-group middleware to be set by chaining &lt;code&gt;add()&lt;/code&gt; after the &lt;code&gt;group()&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;p&gt;Sample Application, making use of callback middleware on a group of url-handlers&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-$mw = function ($request, $response, $next) {
-    $token = $request-&amp;gt;getHeaderLine(&#39;Authorization&#39;);
-    if ($token &amp;amp;&amp;amp; verify_token($token)) {
-        return $next($request, $response);
-    }
-    return $response-&amp;gt;withStatus(401);
-};
-
-$app-&amp;gt;group(&#39;/api/me&#39;, function() {
-    $this-&amp;gt;get(&#39;/info&#39;, &#39;User:info&#39;)-&amp;gt;setName(&#39;api_me_info&#39;);
-    $this-&amp;gt;put(&#39;/info&#39;, &#39;User:updateInfo&#39;)-&amp;gt;setName(&#39;api_me_update_info&#39;);
-})-&amp;gt;add($mw);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This would add a token authentication layer to &lt;code&gt;/api/me&lt;/code&gt; group of routes.&lt;/p&gt;
-
-&lt;h3 id=&#34;reusing-middleware-by-injecting-it-to-dependency-injection-container-works-only-in-slimfit&#34;&gt;Reusing middleware by injecting it to Dependency Injection Container (works only in SlimFit)&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;File app/Http/Middleware/Token.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-namespace App\Htpp\Middleware;
-
-class Token
-{
-    public function __invoke($request, $response, $next)
-    {
-        $token = $request-&amp;gt;getHeaderLine(&#39;Authorization&#39;);
-        if ($token &amp;amp;&amp;amp; verify_token($token)) {
-            return $next($request, $response);
-        }
-        return $response-&amp;gt;withStatus(401);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;File app/Http/Kernel.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;    public function defaultRouteMiddlewares()
-    {
-        $this-&amp;gt;setRouteMiddleware(&#39;token&#39;, new \App\Http\Middleware\Token());
-    }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When you want to use this middleware, just add prefix &lt;code&gt;mw_&lt;/code&gt; to there middleware alias named.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$group_or_route-&amp;gt;add(&#39;mw_token&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;passing-variables-from-middleware&#34;&gt;Passing variables from middleware&lt;/h3&gt;
-
-&lt;p&gt;The easiest way to pass attributes from middleware is to use the request&amp;rsquo;s
-attributes.&lt;/p&gt;
-
-&lt;p&gt;Setting the variable in the middleware:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$request = $request-&amp;gt;withAttribute(&#39;foo&#39;, &#39;bar&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Getting the variable in the route callback:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$foo = $request-&amp;gt;getAttribute(&#39;foo&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;good-collection-of-middlewares&#34;&gt;Good collection of middlewares&lt;/h3&gt;
-
-&lt;p&gt;If you are looking for a common middleware, please have a look &lt;a href=&#34;https://github.com/oscarotero/psr7-middlewares&#34;&gt;this collection&lt;/a&gt;. Thanks to &lt;a href=&#34;https://github.com/oscarotero&#34;&gt;Oscar Otero&lt;/a&gt; for creating this collection.&lt;/p&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/http-kernel/index/</guid>
+      <description>HTTP Stack In SlimFit, we have a HTTP Kernel handles request and return a response. That is how a webservice works.
+HTTP Kernel is a middlewares stack, where each middleware receive a request, process the request or pass it to next middleware, and finally return a response.
+Note
+Below part of document has been copied from Slim Framework docs, and I changed some place to fit with SlimFit.
+ What is middleware?</description>
     </item>
     
     <item>
       <title>Concepts</title>
-      <link>https://slimfit.khanhicetea.com/concepts/</link>
+      <link>https://slimfit.khanhicetea.com/concepts/index/</link>
       <pubDate>Sun, 21 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/concepts/</guid>
-      <description>
-
-&lt;h2 id=&#34;slimfit-application&#34;&gt;SlimFit Application&lt;/h2&gt;
-
-&lt;p&gt;SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.&lt;/p&gt;
-
-&lt;h3 id=&#34;get-application-instance&#34;&gt;Get application instance&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$app = \App\SlimFit::getInstance()
-// or use helper function
-$app = app();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;dependency-container&#34;&gt;Dependency Container&lt;/h2&gt;
-
-&lt;p&gt;SlimFit uses &lt;a href=&#34;http://pimple.sensiolabs.org/&#34;&gt;Pimple&lt;/a&gt; as Dependency Container because it&amp;rsquo;s very lightweight and flexible. You can read its documentation in Homepage.&lt;/p&gt;
-
-&lt;h3 id=&#34;get-service-factory-by-key&#34;&gt;Get service, factory by key&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$container = app()-&amp;gt;getContainer();
-$value = $container-&amp;gt;get($key);
-$value2 = $container[$key2]
-// or use helper function
-$value3 = app($key3);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;get-application-config&#34;&gt;Get application config&lt;/h3&gt;
-
-&lt;p&gt;SlimFit application autoload all PHP files in &lt;code&gt;config&lt;/code&gt; folder to retrieve array of config then put in DI Container via a namespace key &lt;code&gt;config.[filename_without_extension]&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;File : config/console.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;return [
-    &#39;console.name&#39; =&amp;gt; &#39;SlimFit console&#39;,
-] 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Getting that config&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$console_name = $container[&#39;config.console&#39;][&#39;console.name&#39;];
-// or short way
-$console_name = app(&#39;config.console&#39;)[&#39;console.name&#39;];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;service-provider&#34;&gt;Service provider&lt;/h2&gt;
-
-&lt;p&gt;Service provider &lt;strong&gt;MUST&lt;/strong&gt; implements &lt;code&gt;\Pimple\ServiceProviderInterface&lt;/code&gt;
-We have some common service providers in &lt;code&gt;app\ServiceProvider&lt;/code&gt; : Monolog, Console, Capsule and Twig&lt;/p&gt;
-
-&lt;p&gt;You &lt;strong&gt;SHOULD&lt;/strong&gt; register service provider in bootstraping of Application at &lt;code&gt;bootstrap/app.php&lt;/code&gt;, you can see we had 2 core service providers : Monolog and HttpKernel&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$service_providers = [
-    App\ServiceProvider\Monolog::class =&amp;gt; [], 
-    App\ServiceProvider\HttpKernel::class =&amp;gt; [], 
-
-    // Your service providers below
-    App\ServiceProvider\Example::class =&amp;gt; $config_replace_in_container, 
-];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;which &lt;code&gt;$config_replace_in_container&lt;/code&gt; is an array of key-value config will be replaced in DI Container.&lt;/p&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/concepts/index/</guid>
+      <description>SlimFit Application SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.
+Get application instance $app = \App\SlimFit::getInstance() // or use helper function $app = app();  Dependency Container SlimFit uses Pimple as Dependency Container because it&amp;rsquo;s very lightweight and flexible. You can read its documentation in Homepage.
+Get service, factory by key $container = app()-&amp;gt;getContainer(); $value = $container-&amp;gt;get($key); $value2 = $container[$key2] // or use helper function $value3 = app($key3);  Get application config SlimFit application autoload all PHP files in config folder to retrieve array of config then put in DI Container via a namespace key config.</description>
     </item>
     
     <item>
       <title>Routing - Controller</title>
-      <link>https://slimfit.khanhicetea.com/routing/</link>
+      <link>https://slimfit.khanhicetea.com/routing/index/</link>
       <pubDate>Sun, 21 Aug 2016 01:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/routing/</guid>
-      <description>
-
-&lt;h2 id=&#34;routing&#34;&gt;Routing&lt;/h2&gt;
-
-&lt;p&gt;In SlimFit, you can define routing in &lt;code&gt;app/Http/routes.php&lt;/code&gt; file in the same way as Slim 3.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-
-$app = app();
-
-// Use basic closure, setName is method to name to route, it is optional
-$app-&amp;gt;get(&#39;/&#39;, function ($req, $res) {
-    return $res-&amp;gt;withJson([&#39;hello&#39; =&amp;gt; &#39;world&#39;]);
-})-&amp;gt;setName(&#39;home&#39;);
-
-// Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name
-$app-&amp;gt;get(&#39;/&#39;, &#39;Home:hello&#39;)-&amp;gt;setName(&#39;home&#39;);
-
-// Add a middleware, mw_token is middleware named &#39;token&#39; which defined in app/Http/Kernel.php
-$app-&amp;gt;get(&#39;/me&#39;, &#39;User:aboutMe&#39;)-&amp;gt;setName(&#39;about_me&#39;)-&amp;gt;add(&#39;mw_token&#39;);
-
-// Group route
-$app-&amp;gt;group(&#39;/api/me&#39;, function() {
-    $this-&amp;gt;get(&#39;/info&#39;, &#39;User:info&#39;)-&amp;gt;setName(&#39;api_me_info&#39;);
-    $this-&amp;gt;put(&#39;/info&#39;, &#39;User:updateInfo&#39;)-&amp;gt;setName(&#39;api_me_update_info&#39;);
-})-&amp;gt;add(&#39;mw_token&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;controller&#34;&gt;Controller&lt;/h2&gt;
-
-&lt;p&gt;You &lt;strong&gt;SHOULD&lt;/strong&gt; define application controller in namespace &lt;code&gt;App\Htpp\Controller&lt;/code&gt; and &lt;strong&gt;extends&lt;/strong&gt; &lt;code&gt;App\Http\Controller\Base&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;passing-request-response-directly-to-method&#34;&gt;Passing request, response directly to method&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-namespace App\Http\Controller;
-
-class User extends Base
-{
-    // use public scope if you want it receive request, reponse directly
-    public function info($req, $res, $args) {
-        return $res-&amp;gt;withJson([&#39;data&#39; =&amp;gt; $args]);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;proxy-request-and-respone-through-controller&#34;&gt;Proxy request and respone through Controller&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-namespace App\Http\Controller;
-
-class User extends Base
-{
-    // use protected scope if you want it receive request, reponse directly
-    protected function info($args) {
-        // $this-&amp;gt;req will be request instance
-        // $this-&amp;gt;res will be response instance
-        return $this-&amp;gt;res-&amp;gt;withJson([&#39;data&#39; =&amp;gt; $args]);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/routing/index/</guid>
+      <description>Routing In SlimFit, you can define routing in app/Http/routes.php file in the same way as Slim 3.
+&amp;lt;?php $app = app(); // Use basic closure, setName is method to name to route, it is optional $app-&amp;gt;get(&#39;/&#39;, function ($req, $res) { return $res-&amp;gt;withJson([&#39;hello&#39; =&amp;gt; &#39;world&#39;]); })-&amp;gt;setName(&#39;home&#39;); // Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name $app-&amp;gt;get(&#39;/&#39;, &#39;Home:hello&#39;)-&amp;gt;setName(&#39;home&#39;); // Add a middleware, mw_token is middleware named &#39;token&#39; which defined in app/Http/Kernel.</description>
     </item>
     
     <item>
       <title>Service Providers</title>
-      <link>https://slimfit.khanhicetea.com/service-provider/</link>
+      <link>https://slimfit.khanhicetea.com/service-provider/index/</link>
       <pubDate>Sun, 21 Aug 2016 02:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/service-provider/</guid>
-      <description>
-
-&lt;h2 id=&#34;twig-template-engine&#34;&gt;Twig template engine&lt;/h2&gt;
-
-&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
-
-&lt;p&gt;Require composer package&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ composer require slim/twig-view
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, uncomment the line register Twig Service Provider in &lt;code&gt;bootstrap/app.php&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
-
-&lt;p&gt;All templates is stored in &lt;code&gt;resources/views&lt;/code&gt; folder&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;File resource/views/email.html&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-twig&#34;&gt;&amp;lt;h1&amp;gt;Dear {{ name|e }},&amp;lt;/a&amp;gt;
-
-Thanks for using our service :) Have a good time !
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Render template&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$body = app(&#39;view&#39;)-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39; =&amp;gt; &#39;KhanhIceTea&#39;]);
-// Or use $this in controller
-$body = $this-&amp;gt;view-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39; =&amp;gt; &#39;KhanhIceTea&#39;]);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;eloquent&#34;&gt;Eloquent&lt;/h2&gt;
-
-&lt;p&gt;Eloquent is a very good query builder out there. Checkout its documentation &lt;a href=&#34;https://laravel.com/docs/master/eloquent&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;install-1&#34;&gt;Install&lt;/h3&gt;
-
-&lt;p&gt;Require composer package&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ composer require illuminate/events
-$ composer require illuminate/database
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, uncomment the line register Capsule Service Provider in &lt;code&gt;bootstrap/app.php&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;usage-1&#34;&gt;Usage&lt;/h3&gt;
-
-&lt;p&gt;All application models &lt;strong&gt;MUST&lt;/strong&gt; extend &lt;code&gt;App\Model\Base&lt;/code&gt; to use the Eloquent. Because we init &lt;code&gt;capsule&lt;/code&gt; service when composer autoloads the &lt;code&gt;Base&lt;/code&gt; model.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;File app/Model/User.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-namespace App\Model;
-
-class User extends Base
-{
-    protected $table = &#39;user&#39;;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Use models&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$user = App\Model\User::find(1);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;If you want to use &lt;a href=&#34;https://laravel.com/docs/master/database&#34;&gt;DB&lt;/a&gt; facade like Laravel, we already had it in App\DB&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;use App\DB;
-
-/* count and group user by status */
-$users = DB::table(&#39;users&#39;)
-    -&amp;gt;select(DB::raw(&#39;count(*) as user_count, status&#39;))
-    -&amp;gt;where(&#39;status&#39;, &#39;&amp;lt;&amp;gt;&#39;, 1)
-    -&amp;gt;groupBy(&#39;status&#39;)
-    -&amp;gt;get();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;console&#34;&gt;Console&lt;/h2&gt;
-
-&lt;p&gt;SlimFit used &lt;code&gt;symfony/console&lt;/code&gt; to manage console application&lt;/p&gt;
-
-&lt;h3 id=&#34;install-2&#34;&gt;Install&lt;/h3&gt;
-
-&lt;p&gt;Require composer package&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ composer require symfony/console
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, uncomment the line register Console Service Provider in &lt;code&gt;bootstrap/app.php&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;usage-2&#34;&gt;Usage&lt;/h3&gt;
-
-&lt;p&gt;All console commands &lt;strong&gt;SHOULD&lt;/strong&gt; have namespace &lt;code&gt;app\Console\Command&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;File app/Console/Command/Hello.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-namespace App\Console\Command;
-
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-
-class Hello extends Command
-{
-    protected function configure()
-    {
-        $this
-            -&amp;gt;setName(&#39;hello&#39;)
-            -&amp;gt;setDescription(&#39;Hello world&#39;);
-    }
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $output-&amp;gt;writeln(&#39;Hello World !&#39;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Register command to console application by put it to config/console.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    &#39;console.commands&#39; =&amp;gt; [
-        App\Console\Command\QuoteOfDay::class,
-        App\Console\Command\Hello::class,
-    ],
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;running-command&#34;&gt;Running command&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ php console hello
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/service-provider/index/</guid>
+      <description>Twig template engine Install Require composer package
+$ composer require slim/twig-view  Then, uncomment the line register Twig Service Provider in bootstrap/app.php
+Usage All templates is stored in resources/views folder
+File resource/views/email.html
+&amp;lt;h1&amp;gt;Dear {{ name|e }},&amp;lt;/a&amp;gt; Thanks for using our service :) Have a good time !  Render template
+$body = app(&#39;view&#39;)-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39; =&amp;gt; &#39;KhanhIceTea&#39;]); // Or use $this in controller $body = $this-&amp;gt;view-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39; =&amp;gt; &#39;KhanhIceTea&#39;]);  Eloquent Eloquent is a very good query builder out there.</description>
     </item>
     
     <item>
       <title>Addons</title>
-      <link>https://slimfit.khanhicetea.com/addons/</link>
+      <link>https://slimfit.khanhicetea.com/addons/index/</link>
       <pubDate>Mon, 22 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/addons/</guid>
-      <description>
-
-&lt;h2 id=&#34;phinx-database-migration-tool&#34;&gt;Phinx - Database Migration Tool&lt;/h2&gt;
-
-&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ composer require robmorgan/phinx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
-
-&lt;p&gt;Read full documentation &lt;a href=&#34;http://docs.phinx.org/en/latest/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;Note&lt;/p&gt;
-&lt;p&gt;We already implement phinx.php configuration file, so you don&amp;rsquo;t need run &lt;strong&gt;init&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;run-as-http-service&#34;&gt;Run as HTTP Service&lt;/h2&gt;
-
-&lt;h3 id=&#34;install-1&#34;&gt;Install&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ composer require php-pm/php-pm:dev-master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usage-1&#34;&gt;Usage&lt;/h3&gt;
-
-&lt;p&gt;Read full documentation &lt;a href=&#34;https://github.com/php-pm/php-pm&#34;&gt;here&lt;/a&gt;. We already implement the bootstrap and http bridge, so just use current ppm.json&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ./vendor/bin/ppm start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We benchmarked it performace on CPU Intel Core i3, 4GB RAM Laptop with PHP 7 CGI (hello world route, no database connection) : 950 requests / second.&lt;/p&gt;
-
-&lt;div class=&#34;admonition warning&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;Warning&lt;/p&gt;
-&lt;p&gt;Not production ready yet ! So stay tuned or just YOLO !!!&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/addons/index/</guid>
+      <description>Phinx - Database Migration Tool Install $ composer require robmorgan/phinx  Usage Read full documentation here
+Note
+We already implement phinx.php configuration file, so you don&amp;rsquo;t need run init
+ Run as HTTP Service Install $ composer require php-pm/php-pm:dev-master  Usage Read full documentation here. We already implement the bootstrap and http bridge, so just use current ppm.json
+$ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB RAM Laptop with PHP 7 CGI (hello world route, no database connection) : 950 requests / second.</description>
     </item>
     
     <item>
       <title>License</title>
-      <link>https://slimfit.khanhicetea.com/license/</link>
+      <link>https://slimfit.khanhicetea.com/license/index/</link>
       <pubDate>Sat, 20 Aug 2016 20:10:46 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/license/</guid>
-      <description>
-
-&lt;h2 id=&#34;mit-license&#34;&gt;MIT LICENSE&lt;/h2&gt;
-
-&lt;p&gt;Copyright &amp;copy; 2016 Khanh Nguyen &lt;a href=&#34;mailto:khanhicetea@gmail.com&#34;&gt;khanhicetea@gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:&lt;/p&gt;
-
-&lt;p&gt;The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.&lt;/p&gt;
-
-&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.&lt;/p&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/license/index/</guid>
+      <description>MIT LICENSE Copyright &amp;copy; 2016 Khanh Nguyen khanhicetea@gmail.com
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
     </item>
     
     <item>
       <title>SlimFit - Good Enough RESTful API Framework</title>
-      <link>https://slimfit.khanhicetea.com/</link>
+      <link>https://slimfit.khanhicetea.com/index/</link>
       <pubDate>Sat, 20 Aug 2016 21:07:13 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/</guid>
-      <description>
-
-&lt;h2 id=&#34;beautiful-api-design&#34;&gt;Beautiful API design&lt;/h2&gt;
-
-&lt;p&gt;SlimFit is a framework for only purpose - RESTful API webservice, it&amp;rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.&lt;/p&gt;
-
-&lt;p&gt;SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.&lt;/p&gt;
-
-&lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;Rasmus Lerdorf&lt;/p&gt;
-&lt;p&gt;All general purpose PHP frameworks suck!&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg&#34; alt=&#34;meme&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
-
-&lt;p&gt;Install with &lt;code&gt;composer&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;composer create-project khanhicetea/slimfit your-folder-project
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Beautiful, readable and very user-friendly design based on PSR-7&lt;/li&gt;
-&lt;li&gt;Well-tested and optimized&lt;/li&gt;
-&lt;li&gt;Extra configuration, easy to customize the stack&lt;/li&gt;
-&lt;li&gt;Have I said &amp;ldquo;GOOD ENOUGH&amp;rdquo; ? Sure, it&amp;rsquo;s good enough for a RESTful API webservice&lt;/li&gt;
-&lt;li&gt;Compatible with React PHP to boosting the application speed to new level via &lt;a href=&#34;https://github.com/php-pm/php-pm&#34;&gt;PHP PPM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;https://slimfit.khanhicetea.com/getting-started/&#34;&gt;getting started guide&lt;/a&gt; for instructions how to get
-it up and running.&lt;/p&gt;
-
-&lt;h2 id=&#34;acknowledgements&#34;&gt;Acknowledgements&lt;/h2&gt;
-
-&lt;p&gt;Last but not least a big thank you to &lt;a href=&#34;https://github.com/slimphp/Slim#credits&#34;&gt;Slim contributors&lt;/a&gt;. They created the good base framework to build this stack.&lt;/p&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/index/</guid>
+      <description>Beautiful API design SlimFit is a framework for only purpose - RESTful API webservice, it&amp;rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.
+SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.</description>
     </item>
     
   </channel>

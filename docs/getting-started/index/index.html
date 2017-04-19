@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>SlimFit Documenation</title>
+    <title>Getting started - SlimFit Documenation</title>
     <meta name="generator" content="Hugo 0.20.2" />
 
     
     <meta name="description" content="Good enough RESTful API framework built on top Slim 3">
     
-    <link rel="canonical" href="https://slimfit.khanhicetea.com/">
+    <link rel="canonical" href="https://slimfit.khanhicetea.com/getting-started/index/">
     
     <meta name="author" content="khanhicetea">
     
 
-    <meta property="og:url" content="https://slimfit.khanhicetea.com/">
+    <meta property="og:url" content="https://slimfit.khanhicetea.com/getting-started/index/">
     <meta property="og:title" content="SlimFit Documenation">
     <meta property="og:image" content="https://slimfit.khanhicetea.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="SlimFit Documenation">
@@ -69,9 +69,6 @@
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
     
-    <link href="https://slimfit.khanhicetea.com/index.xml" rel="alternate" type="application/rss+xml" title="SlimFit Documenation" />
-    <link href="https://slimfit.khanhicetea.com/index.xml" rel="feed" type="application/rss+xml" title="SlimFit Documenation" />
-    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
@@ -100,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        SlimFit Documenation
+        Getting started
       </div>
     </div>
 
@@ -313,14 +310,11 @@
 
 
 
-<a class="current" title="SlimFit" href="https://slimfit.khanhicetea.com/">
+<a  title="SlimFit" href="https://slimfit.khanhicetea.com/">
 	
 	SlimFit
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -363,49 +357,92 @@
 
 	<article class="article">
 		<div class="wrapper">
+			<h1>Getting started </h1>
+
 			
-				<h1>SlimFit - Good Enough RESTful API Framework </h1>
 
-				
+<h2 id="installation">Installation</h2>
 
-<h2 id="beautiful-api-design">Beautiful API design</h2>
+<h3 id="installing-slimfit">Installing SlimFit</h3>
 
-<p>SlimFit is a framework for only purpose - RESTful API webservice, it&rsquo;s fast and GOOD enough. It is built on top Slim 3 framework but its design is learnt from Silex 2, Laravel 5.</p>
-
-<p>SlimFit is very lightweight – it is built from scratch using Pimple as DI Container, Slim 3 as HttpKernel, Eloquent as query builder and Phinx as migration tool. And specially, its core is a PSR7-middleware stack so you can customize the whole struture as you want.</p>
-
-<div class="admonition note">
-<p class="admonition-title">Rasmus Lerdorf</p>
-<p>All general purpose PHP frameworks suck!</p>
-</div>
-
-<p><img src="https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg" alt="meme" /></p>
-
-<h2 id="quick-start">Quick start</h2>
-
-<p>Install with <code>composer</code>:</p>
+<p>Let&rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer</p>
 
 <pre><code class="language-sh">composer create-project khanhicetea/slimfit your-folder-project
 </code></pre>
 
-<h2 id="features">Features</h2>
+<h3 id="setup-webserver">Setup webserver</h3>
+
+<p>Next, assuming you have a popular webserver like Apache2 or Nginx</p>
 
 <ul>
-<li>Beautiful, readable and very user-friendly design based on PSR-7</li>
-<li>Well-tested and optimized</li>
-<li>Extra configuration, easy to customize the stack</li>
-<li>Have I said &ldquo;GOOD ENOUGH&rdquo; ? Sure, it&rsquo;s good enough for a RESTful API webservice</li>
-<li>Compatible with React PHP to boosting the application speed to new level via <a href="https://github.com/php-pm/php-pm">PHP PPM</a></li>
+<li>Apache 2 : just point the document root of virtualhost to <strong>public</strong> folder and enable <strong>rewrite</strong> mod if you want to use rewrite url feature.</li>
+<li>Nginx : use this sample site config, (replace the <strong>fastcgi_pass</strong> if you use UNIX sock)</li>
 </ul>
 
-<p>See the <a href="https://slimfit.khanhicetea.com/getting-started/index/">getting started guide</a> for instructions how to get
-it up and running.</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    server_name slimfit.dev; 
 
-<h2 id="acknowledgements">Acknowledgements</h2>
+    root /www/slimfit/public;
+    index index.php;
 
-<p>Last but not least a big thank you to <a href="https://github.com/slimphp/Slim#credits">Slim contributors</a>. They created the good base framework to build this stack.</p>
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
 
-			
+    location ~ \.php$ {
+        fastcgi_pass localhost:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+</code></pre>
+
+<h2 id="config-environment">Config environment</h2>
+
+<p>Copy at the <strong>.env.example</strong> to <strong>.env</strong> in the root directory of your website. Overwrite the existing config file if necessary.</p>
+
+<p>Let me explain detail of environments</p>
+
+<pre><code class="language-env"># Your app name
+APP_NAME=SlimFit
+# Your app secret key, use for encrypt data or JWT token
+APP_KEY=hard_to_guess
+
+# Enable debug error mode
+DEBUG=true
+
+# Default timezone
+TIMEZONE=&quot;UTC&quot;
+
+# Database config
+DB_DRIVER=mysql
+DB_HOST=localhost
+DB_DATABASE=slimfit
+DB_USERNAME=root
+DB_PASSWORD=secret
+DB_CHARSET=utf8
+DB_COLLATION=utf8_unicode_ci
+DB_PREFIX=
+DB_LOG=true
+</code></pre>
+
+<p>Now you can go to home page of application to see the <strong>hello world</strong> message :)</p>
+
+<h2 id="project-folder-struture">Project folder struture</h2>
+
+<ul>
+<li><strong>app</strong> : Application classes (included Console Commands, Http Stack, Database Models and Service Providers)</li>
+<li><strong>bootstrap</strong> : bootstrap files (first run before running the app)</li>
+<li><strong>config</strong> : configuration files (app, database and console, etc &hellip;)</li>
+<li><strong>db</strong> : database files (migration and seeder files)</li>
+<li><strong>public</strong> : your public folder - document root (index.php, assets and public files)</li>
+<li><strong>resources</strong> : resources files (templates or language files)</li>
+<li><strong>storage</strong> : application storage (cache, log)</li>
+<li><strong>tests</strong> : PHPUnit testcase files</li>
+</ul>
+
 
 			<aside class="copyright" role="note">
 				
@@ -420,23 +457,21 @@ it up and running.</p>
 			<footer class="footer">
 				
 
-
-
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
+  
   </div>
 
-  
-  
   <div class="next">
-      <a href="https://slimfit.khanhicetea.com/tags/" title="Tags">
+  
+      <a href="https://slimfit.khanhicetea.com/http-kernel/index/" title="HTTP Kernel">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Tags
+              HTTP Kernel
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
@@ -444,8 +479,11 @@ it up and running.</p>
           </div>
         </div>
       </a>
+  
   </div>
 </nav>
+
+
 
 
 

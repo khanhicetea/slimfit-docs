@@ -2,82 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Concepts on SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/concepts/index.xml</link>
+    <link>https://slimfit.khanhicetea.com/concepts/</link>
     <description>Recent content in Concepts on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license</copyright>
     <lastBuildDate>Sun, 21 Aug 2016 00:11:02 +0100</lastBuildDate>
-    <atom:link href="https://slimfit.khanhicetea.com/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://slimfit.khanhicetea.com/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Concepts</title>
-      <link>https://slimfit.khanhicetea.com/concepts/</link>
+      <link>https://slimfit.khanhicetea.com/concepts/index/</link>
       <pubDate>Sun, 21 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/concepts/</guid>
-      <description>
-
-&lt;h2 id=&#34;slimfit-application&#34;&gt;SlimFit Application&lt;/h2&gt;
-
-&lt;p&gt;SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.&lt;/p&gt;
-
-&lt;h3 id=&#34;get-application-instance&#34;&gt;Get application instance&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$app = \App\SlimFit::getInstance()
-// or use helper function
-$app = app();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;dependency-container&#34;&gt;Dependency Container&lt;/h2&gt;
-
-&lt;p&gt;SlimFit uses &lt;a href=&#34;http://pimple.sensiolabs.org/&#34;&gt;Pimple&lt;/a&gt; as Dependency Container because it&amp;rsquo;s very lightweight and flexible. You can read its documentation in Homepage.&lt;/p&gt;
-
-&lt;h3 id=&#34;get-service-factory-by-key&#34;&gt;Get service, factory by key&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$container = app()-&amp;gt;getContainer();
-$value = $container-&amp;gt;get($key);
-$value2 = $container[$key2]
-// or use helper function
-$value3 = app($key3);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;get-application-config&#34;&gt;Get application config&lt;/h3&gt;
-
-&lt;p&gt;SlimFit application autoload all PHP files in &lt;code&gt;config&lt;/code&gt; folder to retrieve array of config then put in DI Container via a namespace key &lt;code&gt;config.[filename_without_extension]&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;File : config/console.php&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;return [
-    &#39;console.name&#39; =&amp;gt; &#39;SlimFit console&#39;,
-] 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Getting that config&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$console_name = $container[&#39;config.console&#39;][&#39;console.name&#39;];
-// or short way
-$console_name = app(&#39;config.console&#39;)[&#39;console.name&#39;];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;service-provider&#34;&gt;Service provider&lt;/h2&gt;
-
-&lt;p&gt;Service provider &lt;strong&gt;MUST&lt;/strong&gt; implements &lt;code&gt;\Pimple\ServiceProviderInterface&lt;/code&gt;
-We have some common service providers in &lt;code&gt;app\ServiceProvider&lt;/code&gt; : Monolog, Console, Capsule and Twig&lt;/p&gt;
-
-&lt;p&gt;You &lt;strong&gt;SHOULD&lt;/strong&gt; register service provider in bootstraping of Application at &lt;code&gt;bootstrap/app.php&lt;/code&gt;, you can see we had 2 core service providers : Monolog and HttpKernel&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$service_providers = [
-    App\ServiceProvider\Monolog::class =&amp;gt; [], 
-    App\ServiceProvider\HttpKernel::class =&amp;gt; [], 
-
-    // Your service providers below
-    App\ServiceProvider\Example::class =&amp;gt; $config_replace_in_container, 
-];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;which &lt;code&gt;$config_replace_in_container&lt;/code&gt; is an array of key-value config will be replaced in DI Container.&lt;/p&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/concepts/index/</guid>
+      <description>SlimFit Application SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.
+Get application instance $app = \App\SlimFit::getInstance() // or use helper function $app = app();  Dependency Container SlimFit uses Pimple as Dependency Container because it&amp;rsquo;s very lightweight and flexible. You can read its documentation in Homepage.
+Get service, factory by key $container = app()-&amp;gt;getContainer(); $value = $container-&amp;gt;get($key); $value2 = $container[$key2] // or use helper function $value3 = app($key3);  Get application config SlimFit application autoload all PHP files in config folder to retrieve array of config then put in DI Container via a namespace key config.</description>
     </item>
     
   </channel>

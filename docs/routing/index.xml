@@ -2,82 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Routings on SlimFit Documenation</title>
-    <link>https://slimfit.khanhicetea.com/routing/index.xml</link>
+    <link>https://slimfit.khanhicetea.com/routing/</link>
     <description>Recent content in Routings on SlimFit Documenation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license</copyright>
     <lastBuildDate>Sun, 21 Aug 2016 01:56:50 +0100</lastBuildDate>
-    <atom:link href="https://slimfit.khanhicetea.com/routing/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://slimfit.khanhicetea.com/routing/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Routing - Controller</title>
-      <link>https://slimfit.khanhicetea.com/routing/</link>
+      <link>https://slimfit.khanhicetea.com/routing/index/</link>
       <pubDate>Sun, 21 Aug 2016 01:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/routing/</guid>
-      <description>
-
-&lt;h2 id=&#34;routing&#34;&gt;Routing&lt;/h2&gt;
-
-&lt;p&gt;In SlimFit, you can define routing in &lt;code&gt;app/Http/routes.php&lt;/code&gt; file in the same way as Slim 3.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-
-$app = app();
-
-// Use basic closure, setName is method to name to route, it is optional
-$app-&amp;gt;get(&#39;/&#39;, function ($req, $res) {
-    return $res-&amp;gt;withJson([&#39;hello&#39; =&amp;gt; &#39;world&#39;]);
-})-&amp;gt;setName(&#39;home&#39;);
-
-// Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name
-$app-&amp;gt;get(&#39;/&#39;, &#39;Home:hello&#39;)-&amp;gt;setName(&#39;home&#39;);
-
-// Add a middleware, mw_token is middleware named &#39;token&#39; which defined in app/Http/Kernel.php
-$app-&amp;gt;get(&#39;/me&#39;, &#39;User:aboutMe&#39;)-&amp;gt;setName(&#39;about_me&#39;)-&amp;gt;add(&#39;mw_token&#39;);
-
-// Group route
-$app-&amp;gt;group(&#39;/api/me&#39;, function() {
-    $this-&amp;gt;get(&#39;/info&#39;, &#39;User:info&#39;)-&amp;gt;setName(&#39;api_me_info&#39;);
-    $this-&amp;gt;put(&#39;/info&#39;, &#39;User:updateInfo&#39;)-&amp;gt;setName(&#39;api_me_update_info&#39;);
-})-&amp;gt;add(&#39;mw_token&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;controller&#34;&gt;Controller&lt;/h2&gt;
-
-&lt;p&gt;You &lt;strong&gt;SHOULD&lt;/strong&gt; define application controller in namespace &lt;code&gt;App\Htpp\Controller&lt;/code&gt; and &lt;strong&gt;extends&lt;/strong&gt; &lt;code&gt;App\Http\Controller\Base&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;passing-request-response-directly-to-method&#34;&gt;Passing request, response directly to method&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-namespace App\Http\Controller;
-
-class User extends Base
-{
-    // use public scope if you want it receive request, reponse directly
-    public function info($req, $res, $args) {
-        return $res-&amp;gt;withJson([&#39;data&#39; =&amp;gt; $args]);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;proxy-request-and-respone-through-controller&#34;&gt;Proxy request and respone through Controller&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-namespace App\Http\Controller;
-
-class User extends Base
-{
-    // use protected scope if you want it receive request, reponse directly
-    protected function info($args) {
-        // $this-&amp;gt;req will be request instance
-        // $this-&amp;gt;res will be response instance
-        return $this-&amp;gt;res-&amp;gt;withJson([&#39;data&#39; =&amp;gt; $args]);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://slimfit.khanhicetea.com/routing/index/</guid>
+      <description>Routing In SlimFit, you can define routing in app/Http/routes.php file in the same way as Slim 3.
+&amp;lt;?php $app = app(); // Use basic closure, setName is method to name to route, it is optional $app-&amp;gt;get(&#39;/&#39;, function ($req, $res) { return $res-&amp;gt;withJson([&#39;hello&#39; =&amp;gt; &#39;world&#39;]); })-&amp;gt;setName(&#39;home&#39;); // Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name $app-&amp;gt;get(&#39;/&#39;, &#39;Home:hello&#39;)-&amp;gt;setName(&#39;home&#39;); // Add a middleware, mw_token is middleware named &#39;token&#39; which defined in app/Http/Kernel.</description>
     </item>
     
   </channel>
