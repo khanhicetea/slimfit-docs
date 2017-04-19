@@ -33,14 +33,14 @@
     <style>
       @font-face {
         font-family: 'Icon';
-        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot?52m981');
-        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot?#iefix52m981')
+        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot');
+        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot')
                format('embedded-opentype'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.woff?52m981')
+             url('https://slimfit.khanhicetea.com/fonts/icon.woff')
                format('woff'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.ttf?52m981')
+             url('https://slimfit.khanhicetea.com/fonts/icon.ttf')
                format('truetype'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.svg?52m981#icon')
+             url('https://slimfit.khanhicetea.com/fonts/icon.svg')
                format('svg');
         font-weight: normal;
         font-style: normal;
@@ -55,7 +55,7 @@
     
     
     
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu%2bMono">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
     <style>
       body, input {
         font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -68,8 +68,15 @@
     
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
+    
+
   </head>
   <body class="palette-primary-red palette-accent-light-green">
+
+
+
+	
+	
 
 
 <div class="backdrop">
@@ -90,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Addon
+        Addons
       </div>
     </div>
 
@@ -137,6 +144,9 @@
       <div class="name">
         <strong>SlimFit Documenation <span class="version">1.0.0</span></strong>
         
+          <br>
+          khanhicetea/slimfit
+        
       </div>
     </div>
   </a>
@@ -180,6 +190,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -195,6 +206,7 @@
 	
 	Concepts
 </a>
+
 
 
   
@@ -214,6 +226,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -231,6 +244,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -246,6 +260,7 @@
 	
 	Service Providers
 </a>
+
 
 
   
@@ -268,6 +283,7 @@
 <ul id="scrollspy">
 </ul>
 
+
   
 </li>
 
@@ -285,6 +301,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -300,6 +317,7 @@
 	
 	SlimFit
 </a>
+
 
 
   
@@ -329,6 +347,8 @@
             </a>
           </li>
           
+
+          
         </ul>
         
       </div>
@@ -340,22 +360,47 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Pages in Addon</h1>
+			<h1>Addons </h1>
 
 			
-			<a href="https://slimfit.khanhicetea.com/addons/index/" title="Addons">
-				<h2>Addons</h2>
-			</a>
 
-			<br>
-			Phinx - Database Migration Tool Install $ composer require robmorgan/phinx  Usage Read full documentation here
-Note
-We already implement phinx.php configuration file, so you don&rsquo;t need run init
- Run as HTTP Service Install $ composer require php-pm/php-pm:dev-master  Usage Read full documentation here. We already implement the bootstrap and http bridge, so just use current ppm.json
-$ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB RAM Laptop with PHP 7 CGI (hello world route, no database connection) : 950 requests / second.
+<h2 id="phinx-database-migration-tool">Phinx - Database Migration Tool</h2>
 
-			<hr>
-			
+<h3 id="install">Install</h3>
+
+<pre><code>$ composer require robmorgan/phinx
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+
+<p>Read full documentation <a href="http://docs.phinx.org/en/latest/">here</a></p>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We already implement phinx.php configuration file, so you don&rsquo;t need run <strong>init</strong></p>
+</div>
+
+<h2 id="run-as-http-service">Run as HTTP Service</h2>
+
+<h3 id="install-1">Install</h3>
+
+<pre><code>$ composer require php-pm/php-pm:dev-master
+</code></pre>
+
+<h3 id="usage-1">Usage</h3>
+
+<p>Read full documentation <a href="https://github.com/php-pm/php-pm">here</a>. We already implement the bootstrap and http bridge, so just use current ppm.json</p>
+
+<pre><code>$ ./vendor/bin/ppm start
+</code></pre>
+
+<p>We benchmarked it performace on CPU Intel Core i3, 4GB RAM Laptop with PHP 7 CGI (hello world route, no database connection) : 950 requests / second.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not production ready yet ! So stay tuned or just YOLO !!!</p>
+</div>
+
 
 			<aside class="copyright" role="note">
 				
@@ -366,6 +411,57 @@ $ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://slimfit.khanhicetea.com/service-provider/" title="Service Providers">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Service Providers
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://slimfit.khanhicetea.com/license/" title="License">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              License
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
 		</div>
 	</article>
 
@@ -381,8 +477,8 @@ $ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB
 
     <script>
     
-      var base_url = '';
-      var repo_id  = '';
+      var base_url = 'https:\/\/slimfit.khanhicetea.com\/';
+      var repo_id  = 'khanhicetea\/slimfit';
     
     </script>
 
@@ -404,14 +500,14 @@ $ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB
             a.setAttribute("href", "#" + headers[i].id);
             a.setAttribute("title", headers[i].innerHTML);
             a.innerHTML = headers[i].innerHTML;
-            
+
             li.appendChild(a)
             scrollspy.appendChild(li);
           }
         } else {
           scrollspy.parentElement.removeChild(scrollspy)
         }
-        
+
 
         /* Add permanent link next to the headers */
         var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
@@ -461,7 +557,8 @@ $ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB
       </script>
     
 
-    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
+

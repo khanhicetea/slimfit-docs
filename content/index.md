@@ -33,7 +33,7 @@ composer create-project khanhicetea/slimfit your-folder-project
 - Have I said "GOOD ENOUGH" ? Sure, it's good enough for a RESTful API webservice
 - Compatible with React PHP to boosting the application speed to new level via [PHP PPM](https://github.com/php-pm/php-pm)
 
-See the [getting started guide]({{< relref "getting-started/index.md" >}}) for instructions how to get
+See the [getting started guide](/getting-started) for instructions how to get
 it up and running.
 
 ## Acknowledgements

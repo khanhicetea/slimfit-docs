@@ -14,10 +14,10 @@
     
     <item>
       <title>Getting started</title>
-      <link>https://slimfit.khanhicetea.com/getting-started/index/</link>
+      <link>https://slimfit.khanhicetea.com/getting-started/</link>
       <pubDate>Sat, 20 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/getting-started/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/getting-started/</guid>
       <description>Installation Installing SlimFit Let&amp;rsquo;s make sure Composer is set up as expected. You should use a latest stable version of Composer
 composer create-project khanhicetea/slimfit your-folder-project  Setup webserver Next, assuming you have a popular webserver like Apache2 or Nginx
  Apache 2 : just point the document root of virtualhost to public folder and enable rewrite mod if you want to use rewrite url feature. Nginx : use this sample site config, (replace the fastcgi_pass if you use UNIX sock)  server { listen 80; server_name slimfit.</description>
@@ -25,10 +25,10 @@ composer create-project khanhicetea/slimfit your-folder-project  Setup webserver
     
     <item>
       <title>HTTP Kernel</title>
-      <link>https://slimfit.khanhicetea.com/http-kernel/index/</link>
+      <link>https://slimfit.khanhicetea.com/http-kernel/</link>
       <pubDate>Sun, 21 Aug 2016 00:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/http-kernel/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/http-kernel/</guid>
       <description>HTTP Stack In SlimFit, we have a HTTP Kernel handles request and return a response. That is how a webservice works.
 HTTP Kernel is a middlewares stack, where each middleware receive a request, process the request or pass it to next middleware, and finally return a response.
 Note
@@ -38,10 +38,10 @@ Below part of document has been copied from Slim Framework docs, and I changed s
     
     <item>
       <title>Concepts</title>
-      <link>https://slimfit.khanhicetea.com/concepts/index/</link>
+      <link>https://slimfit.khanhicetea.com/concepts/</link>
       <pubDate>Sun, 21 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/concepts/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/concepts/</guid>
       <description>SlimFit Application SlimFit has a application object that extends Slim Application, it used Singleton to make sure only 1 application running.
 Get application instance $app = \App\SlimFit::getInstance() // or use helper function $app = app();  Dependency Container SlimFit uses Pimple as Dependency Container because it&amp;rsquo;s very lightweight and flexible. You can read its documentation in Homepage.
 Get service, factory by key $container = app()-&amp;gt;getContainer(); $value = $container-&amp;gt;get($key); $value2 = $container[$key2] // or use helper function $value3 = app($key3);  Get application config SlimFit application autoload all PHP files in config folder to retrieve array of config then put in DI Container via a namespace key config.</description>
@@ -49,20 +49,20 @@ Get service, factory by key $container = app()-&amp;gt;getContainer(); $value = 
     
     <item>
       <title>Routing - Controller</title>
-      <link>https://slimfit.khanhicetea.com/routing/index/</link>
+      <link>https://slimfit.khanhicetea.com/routing/</link>
       <pubDate>Sun, 21 Aug 2016 01:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/routing/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/routing/</guid>
       <description>Routing In SlimFit, you can define routing in app/Http/routes.php file in the same way as Slim 3.
 &amp;lt;?php $app = app(); // Use basic closure, setName is method to name to route, it is optional $app-&amp;gt;get(&#39;/&#39;, function ($req, $res) { return $res-&amp;gt;withJson([&#39;hello&#39; =&amp;gt; &#39;world&#39;]); })-&amp;gt;setName(&#39;home&#39;); // Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name $app-&amp;gt;get(&#39;/&#39;, &#39;Home:hello&#39;)-&amp;gt;setName(&#39;home&#39;); // Add a middleware, mw_token is middleware named &#39;token&#39; which defined in app/Http/Kernel.</description>
     </item>
     
     <item>
       <title>Service Providers</title>
-      <link>https://slimfit.khanhicetea.com/service-provider/index/</link>
+      <link>https://slimfit.khanhicetea.com/service-provider/</link>
       <pubDate>Sun, 21 Aug 2016 02:56:50 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/service-provider/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/service-provider/</guid>
       <description>Twig template engine Install Require composer package
 $ composer require slim/twig-view  Then, uncomment the line register Twig Service Provider in bootstrap/app.php
 Usage All templates is stored in resources/views folder
@@ -73,10 +73,10 @@ $body = app(&#39;view&#39;)-&amp;gt;render(&#39;email.html&#39;, [&#39;name&#39;
     
     <item>
       <title>Addons</title>
-      <link>https://slimfit.khanhicetea.com/addons/index/</link>
+      <link>https://slimfit.khanhicetea.com/addons/</link>
       <pubDate>Mon, 22 Aug 2016 00:11:02 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/addons/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/addons/</guid>
       <description>Phinx - Database Migration Tool Install $ composer require robmorgan/phinx  Usage Read full documentation here
 Note
 We already implement phinx.php configuration file, so you don&amp;rsquo;t need run init
@@ -86,10 +86,10 @@ $ ./vendor/bin/ppm start  We benchmarked it performace on CPU Intel Core i3, 4GB
     
     <item>
       <title>License</title>
-      <link>https://slimfit.khanhicetea.com/license/index/</link>
+      <link>https://slimfit.khanhicetea.com/license/</link>
       <pubDate>Sat, 20 Aug 2016 20:10:46 +0100</pubDate>
       
-      <guid>https://slimfit.khanhicetea.com/license/index/</guid>
+      <guid>https://slimfit.khanhicetea.com/license/</guid>
       <description>MIT LICENSE Copyright &amp;copy; 2016 Khanh Nguyen khanhicetea@gmail.com
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
     </item>

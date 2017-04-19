@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Routings - SlimFit Documenation</title>
+    <title>Routing - Controller - SlimFit Documenation</title>
     <meta name="generator" content="Hugo 0.20.2" />
 
     
@@ -33,14 +33,14 @@
     <style>
       @font-face {
         font-family: 'Icon';
-        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot?52m981');
-        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot?#iefix52m981')
+        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot');
+        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot')
                format('embedded-opentype'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.woff?52m981')
+             url('https://slimfit.khanhicetea.com/fonts/icon.woff')
                format('woff'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.ttf?52m981')
+             url('https://slimfit.khanhicetea.com/fonts/icon.ttf')
                format('truetype'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.svg?52m981#icon')
+             url('https://slimfit.khanhicetea.com/fonts/icon.svg')
                format('svg');
         font-weight: normal;
         font-style: normal;
@@ -55,7 +55,7 @@
     
     
     
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu%2bMono">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
     <style>
       body, input {
         font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -68,8 +68,15 @@
     
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
 
+    
+
   </head>
   <body class="palette-primary-red palette-accent-light-green">
+
+
+
+	
+	
 
 
 <div class="backdrop">
@@ -90,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Routing
+        Routing - Controller
       </div>
     </div>
 
@@ -137,6 +144,9 @@
       <div class="name">
         <strong>SlimFit Documenation <span class="version">1.0.0</span></strong>
         
+          <br>
+          khanhicetea/slimfit
+        
       </div>
     </div>
   </a>
@@ -180,6 +190,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -197,6 +208,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -212,6 +224,7 @@
 	
 	HTTP Kernel
 </a>
+
 
 
   
@@ -234,6 +247,7 @@
 <ul id="scrollspy">
 </ul>
 
+
   
 </li>
 
@@ -249,6 +263,7 @@
 	
 	Service Providers
 </a>
+
 
 
   
@@ -268,6 +283,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -285,6 +301,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -300,6 +317,7 @@
 	
 	SlimFit
 </a>
+
 
 
   
@@ -329,6 +347,8 @@
             </a>
           </li>
           
+
+          
         </ul>
         
       </div>
@@ -340,19 +360,70 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Pages in Routing</h1>
+			<h1>Routing - Controller </h1>
 
 			
-			<a href="https://slimfit.khanhicetea.com/routing/index/" title="Routing - Controller">
-				<h2>Routing - Controller</h2>
-			</a>
 
-			<br>
-			Routing In SlimFit, you can define routing in app/Http/routes.php file in the same way as Slim 3.
-&lt;?php $app = app(); // Use basic closure, setName is method to name to route, it is optional $app-&gt;get(&lsquo;/&rsquo;, function ($req, $res) { return $res-&gt;withJson([&lsquo;hello&rsquo; =&gt; &lsquo;world&rsquo;]); })-&gt;setName(&lsquo;home&rsquo;); // Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name $app-&gt;get(&lsquo;/&rsquo;, &lsquo;Home:hello&rsquo;)-&gt;setName(&lsquo;home&rsquo;); // Add a middleware, mw_token is middleware named &lsquo;token&rsquo; which defined in app/Http/Kernel.
+<h2 id="routing">Routing</h2>
 
-			<hr>
-			
+<p>In SlimFit, you can define routing in <code>app/Http/routes.php</code> file in the same way as Slim 3.</p>
+
+<pre><code>&lt;?php
+
+$app = app();
+
+// Use basic closure, setName is method to name to route, it is optional
+$app-&gt;get('/', function ($req, $res) {
+    return $res-&gt;withJson(['hello' =&gt; 'world']);
+})-&gt;setName('home');
+
+// Use controller class, which Home is controller in namespace App\Http\Controller and hello is method name
+$app-&gt;get('/', 'Home:hello')-&gt;setName('home');
+
+// Add a middleware, mw_token is middleware named 'token' which defined in app/Http/Kernel.php
+$app-&gt;get('/me', 'User:aboutMe')-&gt;setName('about_me')-&gt;add('mw_token');
+
+// Group route
+$app-&gt;group('/api/me', function() {
+    $this-&gt;get('/info', 'User:info')-&gt;setName('api_me_info');
+    $this-&gt;put('/info', 'User:updateInfo')-&gt;setName('api_me_update_info');
+})-&gt;add('mw_token');
+</code></pre>
+
+<h2 id="controller">Controller</h2>
+
+<p>You <strong>SHOULD</strong> define application controller in namespace <code>App\Htpp\Controller</code> and <strong>extends</strong> <code>App\Http\Controller\Base</code></p>
+
+<h3 id="passing-request-response-directly-to-method">Passing request, response directly to method</h3>
+
+<pre><code>&lt;?php
+namespace App\Http\Controller;
+
+class User extends Base
+{
+    // use public scope if you want it receive request, reponse directly
+    public function info($req, $res, $args) {
+        return $res-&gt;withJson(['data' =&gt; $args]);
+    }
+}
+</code></pre>
+
+<h3 id="proxy-request-and-respone-through-controller">Proxy request and respone through Controller</h3>
+
+<pre><code>&lt;?php
+namespace App\Http\Controller;
+
+class User extends Base
+{
+    // use protected scope if you want it receive request, reponse directly
+    protected function info($args) {
+        // $this-&gt;req will be request instance
+        // $this-&gt;res will be response instance
+        return $this-&gt;res-&gt;withJson(['data' =&gt; $args]);
+    }
+}
+</code></pre>
+
 
 			<aside class="copyright" role="note">
 				
@@ -363,6 +434,57 @@
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://slimfit.khanhicetea.com/concepts/" title="Concepts">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Concepts
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://slimfit.khanhicetea.com/service-provider/" title="Service Providers">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Service Providers
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
 		</div>
 	</article>
 
@@ -378,8 +500,8 @@
 
     <script>
     
-      var base_url = '';
-      var repo_id  = '';
+      var base_url = 'https:\/\/slimfit.khanhicetea.com\/';
+      var repo_id  = 'khanhicetea\/slimfit';
     
     </script>
 
@@ -401,14 +523,14 @@
             a.setAttribute("href", "#" + headers[i].id);
             a.setAttribute("title", headers[i].innerHTML);
             a.innerHTML = headers[i].innerHTML;
-            
+
             li.appendChild(a)
             scrollspy.appendChild(li);
           }
         } else {
           scrollspy.parentElement.removeChild(scrollspy)
         }
-        
+
 
         /* Add permanent link next to the headers */
         var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
@@ -458,7 +580,8 @@
       </script>
     
 
-    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
+

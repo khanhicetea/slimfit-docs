@@ -52,37 +52,37 @@ googleAnalytics = "UA-50390703-2"
 
 [[menu.main]]
 	name   = "Getting started"
-	url    = "getting-started/"
+	url    = "/getting-started/"
 	weight = 10
 
 [[menu.main]]
 	name   = "Concepts"
-	url    = "concepts/"
+	url    = "/concepts/"
 	weight = 20
 
 [[menu.main]]
 	name   = "HTTP Kernel"
-	url    = "http-kernel/"
+	url    = "/http-kernel/"
 	weight = 30
 
 [[menu.main]]
 	name   = "Routing - Controller"
-	url    = "routing/"
+	url    = "/routing/"
 	weight = 40
 
 [[menu.main]]
 	name   = "Service Providers"
-	url    = "service-provider/"
+	url    = "/service-provider/"
 	weight = 50
 
 [[menu.main]]
 	name   = "Addons"
-	url    = "addons/"
+	url    = "/addons/"
 	weight = 60
 
 [[menu.main]]
 	name   = "License"
-	url    = "license/"
+	url    = "/license/"
 	weight = 70
 
 

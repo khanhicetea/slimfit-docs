@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/getting-started/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/getting-started/</loc>
     <lastmod>2016-08-20T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/http-kernel/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/http-kernel/</loc>
     <lastmod>2016-08-21T00:56:50+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/concepts/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/concepts/</loc>
     <lastmod>2016-08-21T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/routing/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/routing/</loc>
     <lastmod>2016-08-21T01:56:50+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/service-provider/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/service-provider/</loc>
     <lastmod>2016-08-21T02:56:50+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/addons/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/addons/</loc>
     <lastmod>2016-08-22T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/license/index/</loc>
+    <loc>https://slimfit.khanhicetea.com/license/</loc>
     <lastmod>2016-08-20T20:10:46+01:00</lastmod>
   </url>
   
@@ -42,49 +42,7 @@
   </url>
   
   <url>
-    <loc>https://slimfit.khanhicetea.com/addons/</loc>
-    <lastmod>2016-08-22T00:11:02+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://slimfit.khanhicetea.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://slimfit.khanhicetea.com/concepts/</loc>
-    <lastmod>2016-08-21T00:11:02+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://slimfit.khanhicetea.com/getting-started/</loc>
-    <lastmod>2016-08-20T00:11:02+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://slimfit.khanhicetea.com/http-kernel/</loc>
-    <lastmod>2016-08-21T00:56:50+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://slimfit.khanhicetea.com/license/</loc>
-    <lastmod>2016-08-20T20:10:46+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://slimfit.khanhicetea.com/routing/</loc>
-    <lastmod>2016-08-21T01:56:50+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://slimfit.khanhicetea.com/service-provider/</loc>
-    <lastmod>2016-08-21T02:56:50+01:00</lastmod>
     <priority>0</priority>
   </url>
   
