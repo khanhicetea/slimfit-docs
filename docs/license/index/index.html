@@ -33,14 +33,14 @@
     <style>
       @font-face {
         font-family: 'Icon';
-        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot?52m981');
-        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot?#iefix52m981')
+        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot');
+        src: url('https://slimfit.khanhicetea.com/fonts/icon.eot')
                format('embedded-opentype'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.woff?52m981')
+             url('https://slimfit.khanhicetea.com/fonts/icon.woff')
                format('woff'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.ttf?52m981')
+             url('https://slimfit.khanhicetea.com/fonts/icon.ttf')
                format('truetype'),
-             url('https://slimfit.khanhicetea.com/fonts/icon.svg?52m981#icon')
+             url('https://slimfit.khanhicetea.com/fonts/icon.svg')
                format('svg');
         font-weight: normal;
         font-style: normal;
@@ -55,7 +55,7 @@
     
     
     
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu%2bMono">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
     <style>
       body, input {
         font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -67,6 +67,8 @@
 
     
     <script src="https://slimfit.khanhicetea.com/javascripts/modernizr.js"></script>
+
+    
 
   </head>
   <body class="palette-primary-red palette-accent-light-green">
@@ -188,6 +190,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -205,6 +208,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -216,10 +220,11 @@
 
 
 
-<a  title="HTTP Kernel" href="https://slimfit.khanhicetea.com/http-kernel/">
+<a  title="HTTP Kernel" href="http-kernel/">
 	
 	HTTP Kernel
 </a>
+
 
 
   
@@ -239,6 +244,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -254,6 +260,7 @@
 	
 	Service Providers
 </a>
+
 
 
   
@@ -273,6 +280,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -290,6 +298,7 @@
 </a>
 
 
+
   
 </li>
 
@@ -305,6 +314,7 @@
 	
 	SlimFit
 </a>
+
 
 
   
@@ -333,6 +343,8 @@
               @khanhicetea on GitHub
             </a>
           </li>
+          
+
           
         </ul>
         
@@ -470,14 +482,14 @@ SOFTWARE.</p>
             a.setAttribute("href", "#" + headers[i].id);
             a.setAttribute("title", headers[i].innerHTML);
             a.innerHTML = headers[i].innerHTML;
-            
+
             li.appendChild(a)
             scrollspy.appendChild(li);
           }
         } else {
           scrollspy.parentElement.removeChild(scrollspy)
         }
-        
+
 
         /* Add permanent link next to the headers */
         var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
@@ -527,7 +539,8 @@ SOFTWARE.</p>
       </script>
     
 
-    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
+
