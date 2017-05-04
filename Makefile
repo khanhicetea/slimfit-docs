@@ -2,6 +2,7 @@ all: build save
 serve:
 	hugo serve --theme=hugo-material-docs --buildDrafts
 build:
+	git pull
 	hugo --theme=hugo-material-docs -d docs
 save:
 	git add -A
